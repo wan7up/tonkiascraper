@@ -39,6 +39,10 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add tv.m3u tv.txt
-          git commit -m "Auto-update IPTV playlist $(date +'%Y-%m-%d')" || exit 0
-          git push
+         if [ -f "tv.m3u" ]; then
+            git add tv.m3u tv.txt
+            git commit -m "Auto-update IPTV playlist $(date +'%Y-%m-%d')"
+            git push
+          else
+            print("⚠️ tv.m3u not found, skipping commit.")
+          fi
