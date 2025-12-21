@@ -11,16 +11,19 @@ def main():
     # Linux/Docker 环境必须参数，防止权限报错
     co.set_argument('--no-sandbox') 
     co.set_argument('--disable-gpu')
-
-if os.path.exists('/usr/bin/chromium-browser'):
-        co.set_paths(browser_path='/usr/bin/chromium-browser')
     
-    # 尝试启动
+    # 👇【关键修改】自动读取 GitHub Actions 设置的浏览器路径
+    # 如果环境变量里有 CHROME_PATH (在云端)，就用它；如果没有 (在本地)，就自动找
+    chrome_path = os.getenv('CHROME_PATH')
+    if chrome_path:
+        print(f"🔧 Using Chrome at: {chrome_path}")
+        co.set_paths(browser_path=chrome_path)
+    
     try:
         page = ChromiumPage(co)
     except Exception as e:
         print(f"❌ Browser Init Failed: {e}")
-        return # 浏览器都启动不了，直接结束
+        return
     
     # 自动管理浏览器路径 (DrissionPage 会自动寻找或下载)
     page = ChromiumPage(co)
