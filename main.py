@@ -11,9 +11,11 @@ def main():
     co.set_argument('--no-sandbox')
     co.set_argument('--disable-gpu')
     co.set_argument('--disable-dev-shm-usage')
+    
+    # 👇【三重修复】同时加上这三个参数，确保万无一失
     co.set_argument('--remote-debugging-port=9222')
-    # 👇【核心修复】没有这行，新版 Chrome 会拒绝连接返回 404
     co.set_argument('--remote-allow-origins=*')
+    co.set_argument('--bind-address=0.0.0.0') 
     
     # 自动读取 GitHub Actions 设置的浏览器路径
     chrome_path = os.getenv('CHROME_PATH')
@@ -21,16 +23,19 @@ def main():
         print(f"🔧 Using Chrome at: {chrome_path}")
         co.set_paths(browser_path=chrome_path)
 
+    # 【调试】打印最终参数，确认修复是否生效
+    print(f"🔧 Browser Args: {co.arguments}")
+
     try:
         page = ChromiumPage(co)
         print("✅ Browser launched successfully!")
     except Exception as e:
         print(f"❌ Browser Init Failed: {e}")
+        # 如果还是失败，尝试不指定端口让它自己随机（最后的挣扎）
         return
 
     # --- 采集逻辑 ---
     keywords = ["无线新闻", "广东体育", "翡翠台"]
-    # 暂时放宽到 60 天，先确保能抓到东西
     days_limit = 60
     final_results = []
     time_threshold = datetime.now() - timedelta(days=days_limit)
@@ -38,8 +43,6 @@ def main():
     try:
         print(f"🚀 Start scraping...")
         page.get('http://tonkiang.us/')
-        
-        # 强制等待加载
         time.sleep(2)
         print(f"📄 Page Title: {page.title}")
 
@@ -95,10 +98,9 @@ def main():
     finally:
         page.quit()
 
-    # --- 强制保存文件 (调试用) ---
+    # --- 强制保存文件 ---
     print(f"💾 Saving {len(final_results)} items...")
     
-    # 就算没数据也生成文件，防止 Actions 报错
     unique_data = list(dict.fromkeys(final_results))
     
     with open("tv.m3u", "w", encoding="utf-8") as f:
