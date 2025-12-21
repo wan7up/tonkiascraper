@@ -1,0 +1,43 @@
+name: Tonkia Auto Scraper
+
+on:
+  # 1. 定时触发：每天北京时间早上 6:00 运行
+  # GitHub 使用 UTC 时间，所以是 22:00 (前一天)
+  schedule:
+    - cron: '0 22 * * *'
+  
+  # 2. 手动触发：允许你在网页上点按钮立即运行
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 允许写入仓库
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+          # 确保 DrissionPage 能找到浏览器，虽然它会自动下载，但更新一下库更好
+          pip install --upgrade DrissionPage
+
+      - name: Run Scraper Script
+        run: python main.py
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add tv.m3u tv.txt
+          # 如果有变化才提交，没变化就不提交，防止报错
+          git commit -m "Auto-update IPTV playlist $(date +'%Y-%m-%d')" || exit 0
+          git push
