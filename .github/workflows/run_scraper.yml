@@ -2,6 +2,7 @@ name: Tonkia Auto Scraper
 
 on:
   schedule:
+    # 北京时间早上 6:00 (UTC 22:00)
     - cron: '0 22 * * *'
   workflow_dispatch:
 
@@ -20,7 +21,7 @@ jobs:
         with:
           python-version: '3.9'
 
-      # 👇【关键修改】使用官方插件安装 Chrome，它会自动设置环境变量
+      # 使用官方插件安装 Chrome
       - name: Setup Chrome
         uses: browser-actions/setup-chrome@latest
 
@@ -30,8 +31,8 @@ jobs:
           pip install --upgrade DrissionPage
 
       - name: Run Scraper Script
-        # Pass the CHROME_PATH environment variable to Python
         env:
+          # 传递浏览器路径变量
           CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
         run: python main.py
 
@@ -39,10 +40,12 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-         if [ -f "tv.m3u" ]; then
+          
+          # 检查文件是否存在，存在才提交
+          if [ -f "tv.m3u" ]; then
             git add tv.m3u tv.txt
             git commit -m "Auto-update IPTV playlist $(date +'%Y-%m-%d')"
             git push
           else
-            print("⚠️ tv.m3u not found, skipping commit.")
+            echo "⚠️ tv.m3u not found, skipping commit."
           fi
