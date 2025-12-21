@@ -12,49 +12,60 @@ def main():
     co.set_argument('--disable-gpu')
     co.set_argument('--disable-dev-shm-usage')
     co.set_argument('--remote-debugging-port=9222')
-
+    # 👇【核心修复】没有这行，新版 Chrome 会拒绝连接返回 404
+    co.set_argument('--remote-allow-origins=*')
+    
     # 自动读取 GitHub Actions 设置的浏览器路径
     chrome_path = os.getenv('CHROME_PATH')
     if chrome_path:
-        print(f"Using Chrome at: {chrome_path}")
+        print(f"🔧 Using Chrome at: {chrome_path}")
         co.set_paths(browser_path=chrome_path)
 
     try:
         page = ChromiumPage(co)
-        print("Browser launched successfully!")
+        print("✅ Browser launched successfully!")
     except Exception as e:
-        print(f"Browser Init Failed: {e}")
+        print(f"❌ Browser Init Failed: {e}")
         return
 
     # --- 采集逻辑 ---
     keywords = ["无线新闻", "广东体育", "翡翠台"]
-    days_limit = 30
+    # 暂时放宽到 60 天，先确保能抓到东西
+    days_limit = 60
     final_results = []
     time_threshold = datetime.now() - timedelta(days=days_limit)
 
     try:
-        print(f"Start scraping | Limit: {days_limit} days")
+        print(f"🚀 Start scraping...")
         page.get('http://tonkiang.us/')
+        
+        # 强制等待加载
+        time.sleep(2)
+        print(f"📄 Page Title: {page.title}")
 
         for kw in keywords:
-            print(f"Checking: {kw}...")
+            print(f"🔎 Checking: {kw}...")
             try:
                 # 寻找输入框
-                search_input = page.ele('tag:input@@type!=hidden', timeout=2)
+                search_input = page.ele('tag:input@@type!=hidden', timeout=5)
                 if search_input:
                     search_input.clear()
                     search_input.input(f"{kw}\n")
                     page.wait(3)
                 else:
+                    print("❌ Input not found, refreshing...")
                     page.refresh()
                     continue
             except: continue
 
             # 采集链接
             items = page.eles('text:://')
+            print(f"   - Found {len(items)} links on page")
+            
             for item in items:
                 try:
-                    url_match = re.search(r'((?:http|https|rtmp|rtsp)://[^\s<>"\u4e00-\u9fa5]+)', item.text)
+                    txt = item.text
+                    url_match = re.search(r'((?:http|https|rtmp|rtsp)://[^\s<>"\u4e00-\u9fa5]+)', txt)
                     if not url_match: continue
                     url = url_match.group(1)
 
@@ -71,37 +82,40 @@ def main():
                                     dt = datetime.strptime(date_str, '%Y-%m-%d')
                                 else:
                                     dt = datetime.strptime(date_str, '%m-%d-%Y')
-
+                                
                                 if dt >= time_threshold:
                                     final_results.append(f"{kw},{url}")
-                                    print(f"  found: {kw} -> {date_str}")
+                                    print(f"     -> Valid: {date_str}")
                                     break
                             except: pass
                 except: continue
 
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"❌ Global Error: {e}")
     finally:
         page.quit()
 
-    # --- 保存文件 ---
-    if final_results:
-        unique_data = list(dict.fromkeys(final_results))
-        # 保存 m3u
-        with open("tv.m3u", "w", encoding="utf-8") as f:
-            f.write("#EXTM3U\n")
-            for item in unique_data:
-                try:
-                    name, url = item.split(',')
-                    f.write(f"#EXTINF:-1,{name}\n{url}\n")
-                except: pass
+    # --- 强制保存文件 (调试用) ---
+    print(f"💾 Saving {len(final_results)} items...")
+    
+    # 就算没数据也生成文件，防止 Actions 报错
+    unique_data = list(dict.fromkeys(final_results))
+    
+    with open("tv.m3u", "w", encoding="utf-8") as f:
+        f.write("#EXTM3U\n")
+        if not unique_data:
+            f.write("# No data found in this run.\n")
+        for item in unique_data:
+            try:
+                name, url = item.split(',')
+                f.write(f"#EXTINF:-1,{name}\n{url}\n")
+            except: pass
 
-        # 保存 txt
-        with open("tv.txt", "w", encoding="utf-8") as f:
+    with open("tv.txt", "w", encoding="utf-8") as f:
+        if not unique_data:
+            f.write("No data found.")
+        else:
             f.write("\n".join(unique_data))
-        print(f"Success! Grabbed {len(unique_data)} items.")
-    else:
-        print("No data found.")
 
 if __name__ == "__main__":
     main()
