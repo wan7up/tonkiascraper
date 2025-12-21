@@ -54,7 +54,7 @@ def main():
         return
 
     # --- 2. 采集配置 ---
-    keywords = ["无线新闻", "广东体育", "翡翠台", "VIU", "tvb plus", "now SPORTS PRIME", "Now Sports 精選", "TLC 台湾", "Discovery", "國家地理", "NatGeo", "HBO"]
+    keywords = ["无线新闻", "广东体育", "翡翠台", "VIU", "tvb plus", "now SPORTS PRIME", "Now Sports 精選", "Discovery", "國家地理", "NatGeo", "HBO"]
     days_limit = 30  # 恢复到 30 天，过滤陈旧源
     time_threshold = datetime.now() - timedelta(days=days_limit)
     
