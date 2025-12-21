@@ -3,19 +3,34 @@ from datetime import datetime, timedelta
 import re
 import os
 import time
+import tempfile
+import shutil
 
 def main():
+    # --- 创建临时用户目录 (解决 Linux 权限问题) ---
+    # GitHub Actions 中如果不指定 user-data-dir，Chrome 可能会因权限问题无法初始化 DevTools
+    temp_user_dir = tempfile.mkdtemp()
+    print(f"🔧 Created temp user dir: {temp_user_dir}")
+
     # --- GitHub Actions 专用配置 ---
     co = ChromiumOptions()
-    co.set_argument('--headless=new')
+    
+    # 使用库自带的方法开启无头模式，比手动 set_argument 更稳
+    co.headless(True)
+    
+    # 基础 Linux 运行参数
     co.set_argument('--no-sandbox')
     co.set_argument('--disable-gpu')
     co.set_argument('--disable-dev-shm-usage')
     
-    # 👇【三重修复】同时加上这三个参数，确保万无一失
-    co.set_argument('--remote-debugging-port=9222')
+    # 核心修复：指定用户目录
+    co.set_argument(f'--user-data-dir={temp_user_dir}')
+    
+    # 核心修复：允许所有来源，防止 403/404
     co.set_argument('--remote-allow-origins=*')
-    co.set_argument('--bind-address=0.0.0.0') 
+    
+    # 【重要改动】不再强制指定 9222 端口，让 DrissionPage 自动寻找空闲端口
+    # co.set_argument('--remote-debugging-port=9222') 
     
     # 自动读取 GitHub Actions 设置的浏览器路径
     chrome_path = os.getenv('CHROME_PATH')
@@ -23,15 +38,18 @@ def main():
         print(f"🔧 Using Chrome at: {chrome_path}")
         co.set_paths(browser_path=chrome_path)
 
-    # 【调试】打印最终参数，确认修复是否生效
+    # 打印参数供调试
     print(f"🔧 Browser Args: {co.arguments}")
 
+    page = None
     try:
         page = ChromiumPage(co)
         print("✅ Browser launched successfully!")
     except Exception as e:
         print(f"❌ Browser Init Failed: {e}")
-        # 如果还是失败，尝试不指定端口让它自己随机（最后的挣扎）
+        # 清理临时目录
+        try: shutil.rmtree(temp_user_dir) 
+        except: pass
         return
 
     # --- 采集逻辑 ---
@@ -43,7 +61,7 @@ def main():
     try:
         print(f"🚀 Start scraping...")
         page.get('http://tonkiang.us/')
-        time.sleep(2)
+        time.sleep(3)
         print(f"📄 Page Title: {page.title}")
 
         for kw in keywords:
@@ -79,7 +97,6 @@ def main():
                         mat = re.search(r'(\d{2,4}-\d{1,2}-\d{2,4})', container.text)
                         if mat:
                             date_str = mat.group(1)
-                            # 日期解析
                             try:
                                 if len(date_str.split('-')[0]) == 4:
                                     dt = datetime.strptime(date_str, '%Y-%m-%d')
@@ -96,11 +113,13 @@ def main():
     except Exception as e:
         print(f"❌ Global Error: {e}")
     finally:
-        page.quit()
+        # 退出浏览器并清理临时目录
+        if page: page.quit()
+        try: shutil.rmtree(temp_user_dir)
+        except: pass
 
     # --- 强制保存文件 ---
     print(f"💾 Saving {len(final_results)} items...")
-    
     unique_data = list(dict.fromkeys(final_results))
     
     with open("tv.m3u", "w", encoding="utf-8") as f:
