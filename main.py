@@ -11,6 +11,9 @@ def main():
     # Linux/Docker 环境必须参数，防止权限报错
     co.set_argument('--no-sandbox') 
     co.set_argument('--disable-gpu')
+
+if os.path.exists('/usr/bin/chromium-browser'):
+        co.set_paths(browser_path='/usr/bin/chromium-browser')
     
     # 自动管理浏览器路径 (DrissionPage 会自动寻找或下载)
     page = ChromiumPage(co)
