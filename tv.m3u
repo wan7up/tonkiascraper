@@ -17,3 +17,35 @@ http://php.jdshipin.com/smt.php?id=jade_twn
 http://php.jdshipin.com/TVOD/iptv.php?id=fct2
 #EXTINF:-1,翡翠台
 http://120.198.101.106:9901/tsfile/live/1007_1.m3u8?key=txiptv
+#EXTINF:-1,VIU
+http://php.jdshipin.com/TVOD/iptv.php?id=viutv2
+#EXTINF:-1,VIU
+http://api.kkitv.itv888.vip:8080/streams/bvdslcl5cts/index.m3u8
+#EXTINF:-1,VIU
+http://php.jdshipin.com/TVOD/iptv.php?id=viutv
+#EXTINF:-1,tvb plus
+http://api.kkitv.itv888.vip:8080/streams/48uxa7dlbga/index.m3u8
+#EXTINF:-1,tvb plus
+http://grandprix2023.asuscomm.com:8892/bysid/82.m3u8
+#EXTINF:-1,tvb plus
+http://php.jdshipin.com/TVOD/iptv.php?id=tvbp
+#EXTINF:-1,Now Sports 精選
+http://hls.168.us.kg/u/630/master.m3u8
+#EXTINF:-1,Discovery
+https://nlb2-live.emitstream.com/hls/3mn7wpcv7hbmxmdzaxap/master.m3u8
+#EXTINF:-1,Discovery
+https://discoverfilm-discoverfilm-1-nl.samsung.wurl.tv/playlist.m3u8
+#EXTINF:-1,Discovery
+http://myott.top/stream/DT6QU63K5VX/146.m3u8
+#EXTINF:-1,NatGeo
+http://38b891c9.rossteleccom.net/iptv/SQNLRPBE7FFE8V/133/index.m3u8
+#EXTINF:-1,NatGeo
+http://stream02.vnet.am/NatGeoWild/mono.m3u8
+#EXTINF:-1,NatGeo
+https://tv.arectv13.sbs/live/natgeowild.m3u8
+#EXTINF:-1,HBO
+http://148.113.160.49:14187/
+#EXTINF:-1,HBO
+http://148.113.160.49:14187
+#EXTINF:-1,HBO
+http://148.113.160.49:14188
