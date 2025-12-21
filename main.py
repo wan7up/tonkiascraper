@@ -6,40 +6,68 @@ import time
 import tempfile
 import shutil
 
-def main():
-    # --- 创建临时用户目录 (解决 Linux 权限问题) ---
-    # GitHub Actions 中如果不指定 user-data-dir，Chrome 可能会因权限问题无法初始化 DevTools
-    temp_user_dir = tempfile.mkdtemp()
-    print(f"🔧 Created temp user dir: {temp_user_dir}")
+def handle_cloudflare(page):
+    """
+    专门处理 Cloudflare 'Just a moment...' 验证页面
+    """
+    print("🛡️ Checking for Cloudflare protection...")
+    
+    # 最多尝试 30 秒 (10次 x 3秒)
+    for i in range(10):
+        try:
+            title = page.title
+            print(f"   - Current title: {title}")
+            
+            # 如果标题不再包含 Cloudflare 的特征词，说明过盾成功
+            if "Just a moment" not in title and "Attention Required" not in title and "Tonkiang" in title:
+                print("✅ Cloudflare passed! (Title changed)")
+                return True
+            
+            # 如果还在盾里，尝试点击验证框
+            print(f"   - Waiting for Cloudflare redirect ({i+1}/10)...")
+            
+            # Cloudflare 的验证框通常在一个 ShadowRoot 里，或者是一个 iframe
+            # 尝试点击复选框
+            try:
+                # 寻找可能的 verify 按钮 (DrissionPage 擅长穿透 Shadow DOM)
+                cb = page.ele('@type=checkbox', timeout=1)
+                if cb:
+                    print("   - Found checkbox, trying to click...")
+                    cb.click(by_js=True)
+                else:
+                    # 有时候是 iframe 里的 Turnstile
+                    iframe = page.get_frame('@src^https://challenges.cloudflare.com')
+                    if iframe:
+                        btn = iframe.ele('@type=checkbox', timeout=1) or iframe.ele('css:.mark', timeout=1)
+                        if btn:
+                            print("   - Found Turnstile in iframe, clicking...")
+                            btn.click(by_js=True)
+            except: pass
+                
+        except: pass
+        
+        time.sleep(3)
+    
+    print("❌ Cloudflare bypass failed (Timeout).")
+    return False
 
-    # --- GitHub Actions 专用配置 ---
+def main():
+    # --- 配置环境 ---
+    temp_user_dir = tempfile.mkdtemp()
     co = ChromiumOptions()
-    
-    # 使用库自带的方法开启无头模式，比手动 set_argument 更稳
     co.headless(True)
-    
-    # 基础 Linux 运行参数
     co.set_argument('--no-sandbox')
     co.set_argument('--disable-gpu')
     co.set_argument('--disable-dev-shm-usage')
-    
-    # 核心修复：指定用户目录
     co.set_argument(f'--user-data-dir={temp_user_dir}')
-    
-    # 核心修复：允许所有来源，防止 403/404
     co.set_argument('--remote-allow-origins=*')
     
-    # 【重要改动】不再强制指定 9222 端口，让 DrissionPage 自动寻找空闲端口
-    # co.set_argument('--remote-debugging-port=9222') 
-    
-    # 自动读取 GitHub Actions 设置的浏览器路径
+    # 伪装成正常的 Windows Chrome 浏览器，降低被拦截概率
+    co.set_user_agent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36')
+
     chrome_path = os.getenv('CHROME_PATH')
     if chrome_path:
-        print(f"🔧 Using Chrome at: {chrome_path}")
         co.set_paths(browser_path=chrome_path)
-
-    # 打印参数供调试
-    print(f"🔧 Browser Args: {co.arguments}")
 
     page = None
     try:
@@ -47,22 +75,28 @@ def main():
         print("✅ Browser launched successfully!")
     except Exception as e:
         print(f"❌ Browser Init Failed: {e}")
-        # 清理临时目录
         try: shutil.rmtree(temp_user_dir) 
         except: pass
         return
 
     # --- 采集逻辑 ---
     keywords = ["无线新闻", "广东体育", "翡翠台"]
-    days_limit = 60
+    days_limit = 60 # 保持宽泛
     final_results = []
     time_threshold = datetime.now() - timedelta(days=days_limit)
 
     try:
         print(f"🚀 Start scraping...")
         page.get('http://tonkiang.us/')
-        time.sleep(3)
-        print(f"📄 Page Title: {page.title}")
+        
+        # 👇👇👇 核心：调用过盾逻辑 👇👇👇
+        # 这里会循环等待，直到盾消失，或者超时
+        if not handle_cloudflare(page):
+            print("⚠️ Warning: Cloudflare might still be active, trying to proceed anyway...")
+        
+        # 再给一点时间让真正的页面渲染
+        time.sleep(2)
+        print(f"📄 Real Page Title: {page.title}")
 
         for kw in keywords:
             print(f"🔎 Checking: {kw}...")
@@ -74,8 +108,10 @@ def main():
                     search_input.input(f"{kw}\n")
                     page.wait(3)
                 else:
-                    print("❌ Input not found, refreshing...")
+                    print("❌ Input not found (Still blocked?), skipping...")
+                    # 如果还是找不到，可能还在盾里，尝试刷新再次触发过盾逻辑
                     page.refresh()
+                    handle_cloudflare(page)
                     continue
             except: continue
 
@@ -113,19 +149,18 @@ def main():
     except Exception as e:
         print(f"❌ Global Error: {e}")
     finally:
-        # 退出浏览器并清理临时目录
         if page: page.quit()
         try: shutil.rmtree(temp_user_dir)
         except: pass
 
-    # --- 强制保存文件 ---
+    # --- 保存文件 ---
     print(f"💾 Saving {len(final_results)} items...")
     unique_data = list(dict.fromkeys(final_results))
     
     with open("tv.m3u", "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
         if not unique_data:
-            f.write("# No data found in this run.\n")
+            f.write("# No data found (Check Logs)\n")
         for item in unique_data:
             try:
                 name, url = item.split(',')
