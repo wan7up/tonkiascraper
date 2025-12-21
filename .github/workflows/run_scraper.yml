@@ -1,19 +1,15 @@
 name: Tonkia Auto Scraper
 
 on:
-  # 1. 定时触发：每天北京时间早上 6:00 运行
-  # GitHub 使用 UTC 时间，所以是 22:00 (前一天)
   schedule:
     - cron: '0 22 * * *'
-  
-  # 2. 手动触发：允许你在网页上点按钮立即运行
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # 允许写入仓库
+      contents: write
 
     steps:
       - name: Checkout code
@@ -24,10 +20,16 @@ jobs:
         with:
           python-version: '3.9'
 
+      # --- 👇 新增的部分开始 👇 ---
+      - name: Install Chromium Browser
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser
+      # --- 👆 新增的部分结束 👆 ---
+
       - name: Install Dependencies
         run: |
           pip install -r requirements.txt
-          # 确保 DrissionPage 能找到浏览器，虽然它会自动下载，但更新一下库更好
           pip install --upgrade DrissionPage
 
       - name: Run Scraper Script
