@@ -20,12 +20,9 @@ jobs:
         with:
           python-version: '3.9'
 
-      # --- 👇 新增的部分开始 👇 ---
-      - name: Install Chromium Browser
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y chromium-browser
-      # --- 👆 新增的部分结束 👆 ---
+      # 👇【关键修改】使用官方插件安装 Chrome，它会自动设置环境变量
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@latest
 
       - name: Install Dependencies
         run: |
@@ -33,6 +30,9 @@ jobs:
           pip install --upgrade DrissionPage
 
       - name: Run Scraper Script
+        # Pass the CHROME_PATH environment variable to Python
+        env:
+          CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
         run: python main.py
 
       - name: Commit and Push changes
@@ -40,6 +40,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add tv.m3u tv.txt
-          # 如果有变化才提交，没变化就不提交，防止报错
           git commit -m "Auto-update IPTV playlist $(date +'%Y-%m-%d')" || exit 0
           git push
