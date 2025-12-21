@@ -15,6 +15,13 @@ def main():
 if os.path.exists('/usr/bin/chromium-browser'):
         co.set_paths(browser_path='/usr/bin/chromium-browser')
     
+    # 尝试启动
+    try:
+        page = ChromiumPage(co)
+    except Exception as e:
+        print(f"❌ Browser Init Failed: {e}")
+        return # 浏览器都启动不了，直接结束
+    
     # 自动管理浏览器路径 (DrissionPage 会自动寻找或下载)
     page = ChromiumPage(co)
     
