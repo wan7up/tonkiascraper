@@ -4,11 +4,13 @@ import re
 import os
 
 def main():
-    # --- GitHub Actions 专用配置 ---
-    co = ChromiumOptions()
+   co = ChromiumOptions()
+    # 使用旧版 headless 模式兼容性更好，或者指定端口
     co.set_argument('--headless=new')
     co.set_argument('--no-sandbox') 
     co.set_argument('--disable-gpu')
+    co.set_argument('--disable-dev-shm-usage') # 解决内存不足问题
+    co.set_argument('--remote-debugging-port=9222') # 👇【关键修复】固定调试端口
     
     # 👇 自动读取 GitHub Actions 设置的浏览器路径
     chrome_path = os.getenv('CHROME_PATH')
@@ -18,9 +20,10 @@ def main():
     
     try:
         page = ChromiumPage(co)
+        print("✅ Browser launched successfully!") # 打印个成功日志
     except Exception as e:
         print(f"❌ Browser Init Failed: {e}")
-        return
+        return # 浏览器都启动不了，直接结束
     
     # --- 你的核心逻辑 ---
     keywords = ["无线新闻", "广东体育", "翡翠台"] 
