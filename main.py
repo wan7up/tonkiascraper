@@ -2,42 +2,42 @@ from DrissionPage import ChromiumPage, ChromiumOptions
 from datetime import datetime, timedelta
 import re
 import os
+import time
 
 def main():
-   co = ChromiumOptions()
-    # 使用旧版 headless 模式兼容性更好，或者指定端口
+    # --- GitHub Actions 专用配置 ---
+    co = ChromiumOptions()
     co.set_argument('--headless=new')
-    co.set_argument('--no-sandbox') 
+    co.set_argument('--no-sandbox')
     co.set_argument('--disable-gpu')
-    co.set_argument('--disable-dev-shm-usage') # 解决内存不足问题
-    co.set_argument('--remote-debugging-port=9222') # 👇【关键修复】固定调试端口
-    
-    # 👇 自动读取 GitHub Actions 设置的浏览器路径
+    co.set_argument('--disable-dev-shm-usage')
+    co.set_argument('--remote-debugging-port=9222')
+
+    # 自动读取 GitHub Actions 设置的浏览器路径
     chrome_path = os.getenv('CHROME_PATH')
     if chrome_path:
-        print(f"🔧 Using Chrome at: {chrome_path}")
+        print(f"Using Chrome at: {chrome_path}")
         co.set_paths(browser_path=chrome_path)
-    
+
     try:
         page = ChromiumPage(co)
-        print("✅ Browser launched successfully!") # 打印个成功日志
+        print("Browser launched successfully!")
     except Exception as e:
-        print(f"❌ Browser Init Failed: {e}")
-        return # 浏览器都启动不了，直接结束
-    
-    # --- 你的核心逻辑 ---
-    keywords = ["无线新闻", "广东体育", "翡翠台"] 
+        print(f"Browser Init Failed: {e}")
+        return
+
+    # --- 采集逻辑 ---
+    keywords = ["无线新闻", "广东体育", "翡翠台"]
     days_limit = 30
-    final_results = [] 
+    final_results = []
     time_threshold = datetime.now() - timedelta(days=days_limit)
 
     try:
-        print(f"🚀 [GitHub Action] 启动采集 | 范围: 近 {days_limit} 天")
+        print(f"Start scraping | Limit: {days_limit} days")
         page.get('http://tonkiang.us/')
-        
+
         for kw in keywords:
             print(f"Checking: {kw}...")
-            
             try:
                 # 寻找输入框
                 search_input = page.ele('tag:input@@type!=hidden', timeout=2)
@@ -65,18 +65,20 @@ def main():
                         mat = re.search(r'(\d{2,4}-\d{1,2}-\d{2,4})', container.text)
                         if mat:
                             date_str = mat.group(1)
-                            if len(date_str.split('-')[0]) == 4:
-                                dt = datetime.strptime(date_str, '%Y-%m-%d')
-                            else:
-                                dt = datetime.strptime(date_str, '%m-%d-%Y')
-                            
-                            if dt >= time_threshold:
-                                final_results.append(f"{kw},{url}")
-                                # 打印进度到日志
-                                print(f"  found: {kw} -> {date_str}")
-                                break
+                            # 日期解析
+                            try:
+                                if len(date_str.split('-')[0]) == 4:
+                                    dt = datetime.strptime(date_str, '%Y-%m-%d')
+                                else:
+                                    dt = datetime.strptime(date_str, '%m-%d-%Y')
+
+                                if dt >= time_threshold:
+                                    final_results.append(f"{kw},{url}")
+                                    print(f"  found: {kw} -> {date_str}")
+                                    break
+                            except: pass
                 except: continue
-    
+
     except Exception as e:
         print(f"Error: {e}")
     finally:
@@ -85,6 +87,7 @@ def main():
     # --- 保存文件 ---
     if final_results:
         unique_data = list(dict.fromkeys(final_results))
+        # 保存 m3u
         with open("tv.m3u", "w", encoding="utf-8") as f:
             f.write("#EXTM3U\n")
             for item in unique_data:
@@ -92,12 +95,13 @@ def main():
                     name, url = item.split(',')
                     f.write(f"#EXTINF:-1,{name}\n{url}\n")
                 except: pass
-        
+
+        # 保存 txt
         with open("tv.txt", "w", encoding="utf-8") as f:
             f.write("\n".join(unique_data))
-        print(f"✅ Success! Grabbed {len(unique_data)} items.")
+        print(f"Success! Grabbed {len(unique_data)} items.")
     else:
-        print("⚠️ No data found.")
+        print("No data found.")
 
 if __name__ == "__main__":
     main()
