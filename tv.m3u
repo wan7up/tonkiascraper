@@ -247,3 +247,5 @@ http://cdn9.veryfast.filegear-sg.me/live/jade/stream.m3u8
 http://v2h.veryfast.filegear-sg.me/live/hlfct/stream.m3u8
 #EXTINF:-1 group-title="翡翠台",翡翠台字幕
 http://o12.veryfast.filegear-sg.me/hls/fct/playlist.m3u8
+#EXTINF:-1 group-title="广东体育",广东体育
+http://14.145.179.29:8888/udp/239.77.0.112:5146
