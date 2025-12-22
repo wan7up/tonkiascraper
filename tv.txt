@@ -1,3 +1,6 @@
+广东体育,http://183.237.95.108:9901/tsfile/live/1033_1.m3u8?key=txiptv&playlive=0&authid=0
+广东体育,http://120.198.101.106:9901/tsfile/live/1012_1.m3u8?key=txiptv
+广东体育,http://218.15.183.23:9901/tsfile/live/23012_1.m3u8
 无线新闻,https://cdn9.163189.xyz/smt3.1.1.php?id=inews_twn
 无线新闻,http://php.jdshipin.com/TVOD/iptv.php?id=tvbxw
 无线新闻,https://cdn6.101.qzz.io/163189/wxxw
@@ -10,9 +13,6 @@
 无线新闻,http://smt.veryfast.filegear-sg.me/smt3.2.1.php?id=inews_twn
 无线新闻,http://v2h.veryfast.filegear-sg.me/live/wxxw/stream.m3u8
 无线新闻,http://cdn6.veryfast.filegear-sg.me/live/wxxw/stream.m3u8
-广东体育,http://183.237.95.108:9901/tsfile/live/1033_1.m3u8?key=txiptv&playlive=0&authid=0
-广东体育,http://120.198.101.106:9901/tsfile/live/1012_1.m3u8?key=txiptv
-广东体育,http://218.15.183.23:9901/tsfile/live/23012_1.m3u8
 翡翠台,http://php.jdshipin.com/smt.php?id=jade_twn
 翡翠台,http://php.jdshipin.com/TVOD/iptv.php?id=fct2
 翡翠台,http://120.198.101.106:9901/tsfile/live/1007_1.m3u8?key=txiptv
