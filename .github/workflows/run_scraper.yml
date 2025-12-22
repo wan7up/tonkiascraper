@@ -36,16 +36,11 @@ jobs:
           CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
         run: python main.py
 
-      - name: Commit and Push changes
+- name: Commit and Push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # 检查文件是否存在，存在才提交
-          if [ -f "tv.m3u" ]; then
-            git add .
-            git commit -m "Auto-update IPTV playlist $(date +'%Y-%m-%d')"
-            git push
-          else
-            echo "⚠️ tv.m3u not found, skipping commit."
-          fi
+          git add .
+          # 👇 关键修改：加上 || echo "..." 防止报错
+          git commit -m "Auto-update IPTV playlist" || echo "⚠️ No changes to commit"
+          git push || echo "⚠️ Nothing to push"
