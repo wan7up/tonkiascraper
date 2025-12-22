@@ -40,6 +40,8 @@ def load_history():
                         'Date': row['Date'],
                         'Keyword': row['Keyword']
                     }
+        except Exception as e:
+            print(f"⚠️ Error loading history: {e}")
     return history
 
 def save_data(data_dict):
@@ -72,7 +74,7 @@ def main():
     co.set_argument('--no-sandbox')
     co.set_argument('--disable-gpu')
     co.set_argument('--disable-dev-shm-usage')
-    co.set_argument('--window-size=1920,1080') # 大窗口防止按钮被遮挡
+    co.set_argument('--window-size=1920,1080')
     co.set_argument(f'--user-data-dir={temp_user_dir}')
     co.set_argument('--remote-allow-origins=*')
     co.set_user_agent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36')
@@ -103,7 +105,6 @@ def main():
             print(f"\n🚀 Processing Keyword: {kw}")
             
             try:
-                # 每次搜索前刷新，防止残留
                 page.refresh()
                 handle_cloudflare(page)
                 
@@ -113,22 +114,18 @@ def main():
                     search_input.input(kw)
                     time.sleep(0.5)
                     
-                    # --- 改进的提交逻辑 ---
-                    # 1. 优先尝试物理回车 (最接近真实操作)
                     print("   - Pressing Enter...")
                     page.actions.key_down('ENTER')
                     page.actions.key_up('ENTER')
                     
-                    # 2. 如果回车没反应，尝试找按钮补刀
                     time.sleep(1)
                     try:
                         btn = search_input.next('tag:button') or page.ele('tag:button@@type=submit')
                         if btn: 
                             print("   - (Backup) Clicking button...")
-                            btn.click(by_js=True) # JS 点击最稳
+                            btn.click(by_js=True)
                     except: pass
                     
-                    # --- 等待结果 ---
                     print("   - Waiting for results...")
                     found_items = []
                     prev_count = -1
@@ -136,41 +133,30 @@ def main():
                     for i in range(10):
                         found_items = page.eles('text:://')
                         count = len(found_items)
-                        
-                        # 只要数量变化了（不再是首页的固定数量），通常就说明跳走了
-                        # 但如果本来就是 8 个呢？没关系，下面有内容校验
                         if count > 0 and count == prev_count:
                             break
                         prev_count = count
                         time.sleep(1)
 
-                    # --- 核心校验：真的搜到了吗？---
-                    # 遍历找到的所有链接，检查它们的文字或周围文字是否包含“关键词”
-                    # 只要有一个包含，我们就认为搜索成功了。
                     match_count = 0
                     valid_items = []
                     
                     for item in found_items:
-                        # 获取这一行的完整文本 (包含台名、日期、链接)
-                        # 通常 item 是链接文本，我们需要往上找父级
                         full_text = item.text
                         parent = item.parent()
                         if parent: full_text += " " + parent.text
                         
-                        # 简单的模糊匹配
                         if kw.lower() in full_text.lower():
                             match_count += 1
                         
                         valid_items.append(item)
 
-                    # 如果一个匹配的都没有，说明大概率还在首页（首页全是无关频道）
                     if len(valid_items) > 0 and match_count == 0:
-                        print(f"⚠️ Search failed: Found {len(valid_items)} links, but NONE matched keyword '{kw}'. Skipping.")
-                        continue # 跳过这个词，不保存垃圾数据
+                        print(f"⚠️ Search failed: Found links but NONE matched keyword '{kw}'. Skipping.")
+                        continue
 
                     print(f"     -> Results verified (Matches: {match_count}). Extracting...")
 
-                    # --- 提取数据 ---
                     new_count = 0
                     for item in valid_items:
                         try:
@@ -191,7 +177,6 @@ def main():
                                     if mat: date_str = mat.group(1)
                                 
                                 full_text = container.text
-                                # 只有当这行包含关键字时，才尝试提取更细的台名
                                 if kw in full_text:
                                     temp_name = full_text.split('http')[0].split(date_str)[0].strip()
                                     if len(temp_name) > 0 and len(temp_name) < 50:
@@ -235,7 +220,6 @@ def main():
         try: shutil.rmtree(temp_user_dir)
         except: pass
 
-    # --- 4. 清理与保存 ---
     print("\n🧹 Cleaning old data...")
     valid_data = {}
     expired_count = 0
