@@ -134,13 +134,10 @@ def main():
                     print(f"❌ Input box not found for {kw}, skipping.")
                     continue
 
-                # --- 4. 提取逻辑 (所见即所得版) ---
+                # --- 4. 通用提取逻辑 (不再针对特定词) ---
                 items = page.eles('text:://')
                 new_found = 0
                 
-                # 打印第一个找到的原始文本块，用于调试
-                debug_printed = False
-
                 for item in items:
                     try:
                         # 1. 提取 URL
@@ -149,50 +146,47 @@ def main():
                         if not url_match: continue
                         url = url_match.group(1)
 
-                        # 2. 向上找父级容器，直到找到包含换行符的完整块
+                        # 2. 寻找完整信息块
                         container = item
                         full_text_block = ""
                         
-                        # 尝试向上找 3 层
+                        # 向上找包含换行符的父级，这是最准确的定位方式
                         for _ in range(3):
                             container = container.parent()
                             if not container: break
-                            if "\n" in container.text: # 如果包含换行，说明可能包含了台名和链接
+                            if "\n" in container.text:
                                 full_text_block = container.text
                                 break
                         
-                        # 如果还没找到换行，可能是一行显示的，就用当前的
                         if not full_text_block:
                             full_text_block = container.text if container else ""
 
-                        # 🛠️ 调试：打印第一个抓到的块，让你看看脚本到底“看”到了什么
-                        if not debug_printed and "VIU" in kw:
-                             print(f"   🔎 [Debug] Raw Block Structure:\n{repr(full_text_block)}")
-                             debug_printed = True
-
-                        # 3. 按行解析 (所见即所得)
-                        # 将文本按换行符拆分
+                        # 3. 按行解析 (通用逻辑)
+                        # 清洗每一行：去掉首尾空格、去掉制表符、去掉看不见的符号
                         lines = [line.strip() for line in full_text_block.split('\n') if line.strip()]
                         
-                        channel_name = kw # 默认值
+                        channel_name = "" # 初始为空，不预设为 kw
                         date_str = ""
                         
-                        # 分析每一行
                         for line in lines:
-                            # 如果这行是 URL，跳过
+                            # 忽略 URL 行
                             if "://" in line: continue
                             
-                            # 如果这行包含日期，提取日期
+                            # 检查是否是日期行
                             mat = re.search(r'(\d{2,4}-\d{1,2}-\d{2,4})', line)
                             if mat:
                                 date_str = mat.group(1)
-                                continue # 这行是日期行，跳过
+                                continue 
                             
-                            # 如果既不是URL也不是日期，那它极大概率就是台名！
-                            # 取第一行符合条件的作为台名
-                            if len(line) < 50 and not date_str: # 台名通常出现在日期之前
+                            # 如果还没找到台名，且这行不是URL也不是日期，那它就是台名
+                            # 这里不再检查 len(line) < 50，防止某些长名字被漏掉
+                            # 也不再检查是否包含关键字，完全信任页面显示
+                            if not channel_name:
                                 channel_name = line
-                                break # 找到了就停，只取第一行
+                        
+                        # 如果实在没提取到台名，才用关键字兜底 (防止空名)
+                        if not channel_name:
+                            channel_name = kw
 
                         # 4. 存入数据
                         if date_str:
@@ -203,23 +197,25 @@ def main():
                                     dt = datetime.strptime(date_str, '%m-%d-%Y')
                                 str_date = dt.strftime('%Y-%m-%d')
 
-                                # 数据合并与更新
+                                # 核心：总是用页面上抓到的真实名字 (channel_name) 更新数据库
                                 if url in all_data:
+                                    # 即使 URL 已存在，只要页面上的名字不是默认关键字，就更新它
+                                    # 这样可以修正以前被错误存为 "VIU" 的数据
+                                    if channel_name != kw:
+                                        all_data[url]['Channel'] = channel_name
+                                    
+                                    # 更新日期
                                     old_date = datetime.strptime(all_data[url]['Date'], '%Y-%m-%d')
                                     if dt > old_date:
                                         all_data[url]['Date'] = str_date
-                                        # 总是更新为最新抓到的名字 (只要它不是默认关键字)
-                                        if channel_name != kw:
-                                            all_data[url]['Channel'] = channel_name
                                 else:
+                                    # 新增
                                     all_data[url] = {
                                         'Keyword': kw,
                                         'Channel': channel_name,
                                         'Date': str_date
                                     }
                                     new_found += 1
-                                    # 打印日志看看抓对了没
-                                    # print(f"     -> New: [{channel_name}] {str_date}")
                             except: pass
                     except: continue
                 
