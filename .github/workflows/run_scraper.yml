@@ -43,7 +43,7 @@ jobs:
           
           # 检查文件是否存在，存在才提交
           if [ -f "tv.m3u" ]; then
-            git add tv.m3u tv.txt
+            git add .
             git commit -m "Auto-update IPTV playlist $(date +'%Y-%m-%d')"
             git push
           else
