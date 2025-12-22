@@ -1,98 +1,98 @@
 #EXTM3U
-#EXTINF:-1 group-title="无线新闻",无线新闻
-https://cdn9.163189.xyz/smt3.1.1.php?id=inews_twn
-#EXTINF:-1 group-title="无线新闻",﻿无线新闻台
-http://php.jdshipin.com/TVOD/iptv.php?id=tvbxw
-#EXTINF:-1 group-title="无线新闻",无线新闻
-https://cdn6.101.qzz.io/163189/wxxw
-#EXTINF:-1 group-title="无线新闻",无线新闻台
-http://php.jdshipin.com/smt.php?id=inews_twn
-#EXTINF:-1 group-title="无线新闻",无线新闻
-http://122.152.202.33/s/81a8a44f/index.m3u8?id=21
-#EXTINF:-1 group-title="无线新闻",无线新闻台
-http://hls.168.us.kg/u/83/master.m3u8
-#EXTINF:-1 group-title="无线新闻",无线新闻台
-http://cdn9.163189.xyz/smt1.1.php?id=inews_twn
-#EXTINF:-1 group-title="无线新闻",TVB无线新闻
-http://php.jdshipin.com/TVOD/iptv.php?id=wxxwt
-#EXTINF:-1 group-title="无线新闻",无线新闻台
-http://php.jdshipin.com:8880/smt.php?id=inews_twn
-#EXTINF:-1 group-title="无线新闻",无线新闻台
-http://smt.veryfast.filegear-sg.me/smt3.2.1.php?id=inews_twn
-#EXTINF:-1 group-title="无线新闻",无线新闻台
-http://cdn6.veryfast.filegear-sg.me/live/wxxw/stream.m3u8
-#EXTINF:-1 group-title="无线新闻",无线新闻台
-http://v2h.veryfast.filegear-sg.me/live/wxxw/stream.m3u8
-#EXTINF:-1 group-title="广东体育",广东体育
-http://14.145.179.29:8888/udp/239.77.0.6:5146
-#EXTINF:-1 group-title="广东体育",广东体育
-http://php.jdshipin.com/TVOD/iptv.php?id=gdty
-#EXTINF:-1 group-title="广东体育",广东体育
-http://218.13.170.98:9901/tsfile/live/0019_1.m3u8
-#EXTINF:-1 group-title="广东体育",广东体育
-http://38.75.136.137:98/gslb/dsdqpub/gdty.m3u8?auth=testpub
-#EXTINF:-1 group-title="广东体育",广东体育
-http://cdn2.veryfast.filegear-sg.me/live/gdty/stream.m3u8
-#EXTINF:-1 group-title="广东体育",广东体育
-http://120.238.94.10:9901/tsfile/live/1012_1.m3u8
-#EXTINF:-1 group-title="广东体育",广东体育
-http://218.15.183.23:9901/tsfile/live/23012_1.m3u8
-#EXTINF:-1 group-title="广东体育",广东体育
-http://183.237.95.108:9901/tsfile/live/1033_1.m3u8?key=txiptv&playlive=0&authid=0
-#EXTINF:-1 group-title="广东体育",广东体育
-http://120.198.101.106:9901/tsfile/live/1012_1.m3u8?key=txiptv
-#EXTINF:-1 group-title="翡翠台",翡翠台
-http://cdn9.163189.xyz/smt1.1.php?id=jade_twn
-#EXTINF:-1 group-title="翡翠台",TVB翡翠台
-http://php.jdshipin.com:8880/smt.php?id=jade_twn
-#EXTINF:-1 group-title="翡翠台",翡翠台
-https://pull-f5-spe.ixigua.com/yeslivetv.com/291403ea-fabd-4dc1-bdfa-f14ebe74411e/index.m3u8
-#EXTINF:-1 group-title="翡翠台",翡翠台
-http://hls.168.us.kg/u/81/master.m3u8
-#EXTINF:-1 group-title="翡翠台",翡翠台
-http://php.jdshipin.com:8880/TVOD/iptv.php?id=fct3
-#EXTINF:-1 group-title="翡翠台",翡翠台6
-http://php.jdshipin.com/TVOD/iptv.php?id=fct
-#EXTINF:-1 group-title="翡翠台",翡翠台
-http://php.jdshipin.com/smt.php?id=jade_twn
-#EXTINF:-1 group-title="翡翠台",翡翠台
-http://smt.veryfast.filegear-sg.me/smt3.2.1.php?id=jade_twn
-#EXTINF:-1 group-title="翡翠台",翡翠台
-http://api.kkitv.itv888.vip:8080/streams/91wc8xdtj8/index.m3u8
-#EXTINF:-1 group-title="翡翠台",华丽翡翠台
-http://php.jdshipin.com/TVOD/iptv.php?id=huali2
-#EXTINF:-1 group-title="翡翠台",翡翠台
-http://api.kkitv.itv888.vip:8080/streams/jutaw8wu0j9/index.m3u8
-#EXTINF:-1 group-title="翡翠台",翡翠台
-http://cdn6.veryfast.filegear-sg.me/live/fct/stream.m3u8
-#EXTINF:-1 group-title="翡翠台",翡翠台8
-http://php.jdshipin.com/TVOD/iptv.php?id=fct3
-#EXTINF:-1 group-title="翡翠台",翡翠台
-http://smt.veryfast.filegear-sg.me/smt3.2.1.php?id=jade_xue
-#EXTINF:-1 group-title="翡翠台",翡翠台
-http://php.jdshipin.com/TVOD/iptv.php?id=fct2
-#EXTINF:-1 group-title="翡翠台",翡翠台
-http://122.152.202.33/s/81a8a44f/index.m3u8?id=53
-#EXTINF:-1 group-title="翡翠台",翡翠台
-http://120.198.101.106:9901/tsfile/live/1007_1.m3u8?key=txiptv
-#EXTINF:-1 group-title="翡翠台",翡翠台4K
-http://php.jdshipin.com:8880/TVOD/iptv.php?id=fct2
-#EXTINF:-1 group-title="翡翠台",翡翠台4K
-http://cdn6.veryfast.filegear-sg.me/live/fct4k/stream.m3u8
-#EXTINF:-1 group-title="翡翠台",翡翠台4K
-http://php.jdshipin.com/TVOD/iptv.php?id=fct4
-#EXTINF:-1 group-title="翡翠台",华丽翡翠台
-http://php.jdshipin.com/TVOD/iptv.php?id=huali
-#EXTINF:-1 group-title="翡翠台",华丽翡翠台
-http://php.jdshipin.com/smt.php?id=Tvbjade
-#EXTINF:-1 group-title="翡翠台",华丽翡翠台
-http://php.jdshipin.com:8880/smt.php?id=Wlt
-#EXTINF:-1 group-title="翡翠台",华丽翡翠台
-http://cdn9.veryfast.filegear-sg.me/live/jade/stream.m3u8
-#EXTINF:-1 group-title="翡翠台",华丽翡翠台
-http://v2h.veryfast.filegear-sg.me/live/hlfct/stream.m3u8
-#EXTINF:-1 group-title="翡翠台",翡翠台字幕
-http://o12.veryfast.filegear-sg.me/hls/fct/playlist.m3u8
+#EXTINF:-1 group-title="Discovery",DISCOVERY ID
+https://discoverfilm-discoverfilm-1-nl.samsung.wurl.tv/playlist.m3u8
+#EXTINF:-1 group-title="Discovery",Discovery
+https://nlb2-live.emitstream.com/hls/3mn7wpcv7hbmxmdzaxap/master.m3u8
+#EXTINF:-1 group-title="Discovery",Discovery Science HD
+http://myott.top/stream/DT6QU63K5VX/146.m3u8
+#EXTINF:-1 group-title="Discovery",Discovery Россия
+http://myott.top/stream/DT6QU63K5VX/177.m3u8
+#EXTINF:-1 group-title="Discovery",Investigation Discovery
+http://myott.top/stream/DT6QU63K5VX/205.m3u8
+#EXTINF:-1 group-title="Discovery",INVESTIGATION DISCOVERY
+https://fl2.moveonjoy.com/INVESTIGATION_DISCOVERY/index.m3u8
+#EXTINF:-1 group-title="Discovery",Discovery Life HD (1080p)
+http://109.233.89.166/Discovery_Life_HD/index.m3u8
+#EXTINF:-1 group-title="Discovery",Discovery Life HD (1080p)
+http://178.219.128.68:64888/DISCLIFEHD
+#EXTINF:-1 group-title="Discovery",Investigation Discovery HD
+http://s.ipcast.xyz/~205ceb711830cb1db1dd6f2679970d2019b/51073/hlsx/pl.m3u8
+#EXTINF:-1 group-title="Discovery",ID Investigation Discovery DK
+https://livecdn.live247stream.com/discoverpakistan/web/playlist.m3u8
+#EXTINF:-1 group-title="Discovery",Excel Discovery TV (480p) [Not 24/7]
+http://connectiktv.ddns.me:8080/live/61f6352d2b4d5-1/index.m3u8
+#EXTINF:-1 group-title="HBO",HBO
+https://fl2.moveonjoy.com/HBO/index.m3u8
+#EXTINF:-1 group-title="HBO",HBO
+http://148.113.160.49:14187/
+#EXTINF:-1 group-title="HBO",HBO
+http://148.113.160.49:14187
+#EXTINF:-1 group-title="HBO",HBO
+http://148.113.160.49:14188
+#EXTINF:-1 group-title="HBO",HBO+
+http://148.113.160.49:14192
+#EXTINF:-1 group-title="HBO",HBO+
+http://148.113.160.49:14193
+#EXTINF:-1 group-title="HBO",HBO+
+http://148.113.160.49:14194
+#EXTINF:-1 group-title="HBO",HBO 2
+https://fl2.moveonjoy.com/HBO_2/index.m3u8
+#EXTINF:-1 group-title="HBO",HBO +
+http://148.113.160.49:14193/
+#EXTINF:-1 group-title="HBO",HBO PREMIUM
+https://s.vdo.ai/vhs/1.m3u8
+#EXTINF:-1 group-title="HBO",HBO POP
+http://148.113.160.49:14180/
+#EXTINF:-1 group-title="HBO",HBO-pop
+http://148.113.160.49:14181
+#EXTINF:-1 group-title="HBO",HBO-pop
+http://148.113.160.49:14182
+#EXTINF:-1 group-title="HBO",HBO-pop
+http://148.113.160.49:14180
+#EXTINF:-1 group-title="HBO",HBO-mundi
+http://148.113.160.49:14184
+#EXTINF:-1 group-title="HBO",HBO MUNDL
+http://148.113.160.49:14183/
+#EXTINF:-1 group-title="HBO",HBO-mundi
+http://148.113.160.49:14183
+#EXTINF:-1 group-title="HBO",HBO-mundi
+http://148.113.160.49:14185
+#EXTINF:-1 group-title="HBO",HBO-xtreme
+http://148.113.160.49:14175
+#EXTINF:-1 group-title="HBO",HBO-xtreme
+http://148.113.160.49:14174
+#EXTINF:-1 group-title="HBO",HBO-xtreme
+http://148.113.160.49:14176
+#EXTINF:-1 group-title="HBO",HBO-family
+http://148.113.160.49:14191
+#EXTINF:-1 group-title="HBO",HBO XTREME
+http://148.113.160.49:14175/
+#EXTINF:-1 group-title="HBO",HBO FAMILY
+https://fl2.moveonjoy.com/HBO_FAMILY/index.m3u8
+#EXTINF:-1 group-title="HBO",HBO FANILY
+http://148.113.160.49:14190/
+#EXTINF:-1 group-title="HBO",HBO-family
+http://148.113.160.49:14189
+#EXTINF:-1 group-title="HBO",HBO-family
+http://148.113.160.49:14190
+#EXTINF:-1 group-title="HBO",HBO (1080p)
+http://178.219.128.68:64888/HBOHD
+#EXTINF:-1 group-title="HBO",HBO (1080p)
+http://109.233.89.166/HBO_HD/index.m3u8
+#EXTINF:-1 group-title="NatGeo",NatGeo Wild US
+http://38b891c9.rossteleccom.net/iptv/SQNLRPBE7FFE8V/133/index.m3u8
+#EXTINF:-1 group-title="NatGeo",National Geographic Wild
+http://stream02.vnet.am/NatGeoWild/mono.m3u8
+#EXTINF:-1 group-title="NatGeo",National Geographic Wild
+https://tv.arectv13.sbs/live/natgeowild.m3u8
+#EXTINF:-1 group-title="NatGeo",National Geographic Wild (720p)
+https://tv.arectv29.sbs/live/natgeowild.m3u8
+#EXTINF:-1 group-title="NatGeo",National Geographic (1080p) [Geo-blocked]
+https://saran-live.ercdn.net/natgeohd/index.m3u8
+#EXTINF:-1 group-title="NatGeo",National Geographic Wild (1080p) [Geo-blocked]
+https://saran-live.ercdn.net/natgeowild/index.m3u8
+#EXTINF:-1 group-title="Now Sports 精選",Now Sports 精選
+http://hls.168.us.kg/u/630/master.m3u8
 #EXTINF:-1 group-title="VIU",VIUTV
 http://php.jdshipin.com/TVOD/iptv.php?id=viutv2
 #EXTINF:-1 group-title="VIU",Viu6
@@ -153,97 +153,97 @@ http://php.jdshipin.com/TVOD/iptv.php?id=tvbp
 http://api.kkitv.itv888.vip:8080/streams/48uxa7dlbga/index.m3u8
 #EXTINF:-1 group-title="tvb plus",TVB plus备
 https://vdm6-hw.nbgdsygs.com/live/h6-2.flv
-#EXTINF:-1 group-title="Now Sports 精選",Now Sports 精選
-http://hls.168.us.kg/u/630/master.m3u8
-#EXTINF:-1 group-title="Discovery",DISCOVERY ID
-https://discoverfilm-discoverfilm-1-nl.samsung.wurl.tv/playlist.m3u8
-#EXTINF:-1 group-title="Discovery",Discovery
-https://nlb2-live.emitstream.com/hls/3mn7wpcv7hbmxmdzaxap/master.m3u8
-#EXTINF:-1 group-title="Discovery",Discovery Science HD
-http://myott.top/stream/DT6QU63K5VX/146.m3u8
-#EXTINF:-1 group-title="Discovery",Discovery Россия
-http://myott.top/stream/DT6QU63K5VX/177.m3u8
-#EXTINF:-1 group-title="Discovery",Investigation Discovery
-http://myott.top/stream/DT6QU63K5VX/205.m3u8
-#EXTINF:-1 group-title="Discovery",INVESTIGATION DISCOVERY
-https://fl2.moveonjoy.com/INVESTIGATION_DISCOVERY/index.m3u8
-#EXTINF:-1 group-title="Discovery",Discovery Life HD (1080p)
-http://109.233.89.166/Discovery_Life_HD/index.m3u8
-#EXTINF:-1 group-title="Discovery",Discovery Life HD (1080p)
-http://178.219.128.68:64888/DISCLIFEHD
-#EXTINF:-1 group-title="Discovery",Investigation Discovery HD
-http://s.ipcast.xyz/~205ceb711830cb1db1dd6f2679970d2019b/51073/hlsx/pl.m3u8
-#EXTINF:-1 group-title="Discovery",ID Investigation Discovery DK
-https://livecdn.live247stream.com/discoverpakistan/web/playlist.m3u8
-#EXTINF:-1 group-title="Discovery",Excel Discovery TV (480p) [Not 24/7]
-http://connectiktv.ddns.me:8080/live/61f6352d2b4d5-1/index.m3u8
-#EXTINF:-1 group-title="NatGeo",NatGeo Wild US
-http://38b891c9.rossteleccom.net/iptv/SQNLRPBE7FFE8V/133/index.m3u8
-#EXTINF:-1 group-title="NatGeo",National Geographic Wild
-http://stream02.vnet.am/NatGeoWild/mono.m3u8
-#EXTINF:-1 group-title="NatGeo",National Geographic Wild
-https://tv.arectv13.sbs/live/natgeowild.m3u8
-#EXTINF:-1 group-title="NatGeo",National Geographic Wild (720p)
-https://tv.arectv29.sbs/live/natgeowild.m3u8
-#EXTINF:-1 group-title="NatGeo",National Geographic (1080p) [Geo-blocked]
-https://saran-live.ercdn.net/natgeohd/index.m3u8
-#EXTINF:-1 group-title="NatGeo",National Geographic Wild (1080p) [Geo-blocked]
-https://saran-live.ercdn.net/natgeowild/index.m3u8
-#EXTINF:-1 group-title="HBO",HBO
-https://fl2.moveonjoy.com/HBO/index.m3u8
-#EXTINF:-1 group-title="HBO",HBO
-http://148.113.160.49:14187/
-#EXTINF:-1 group-title="HBO",HBO
-http://148.113.160.49:14187
-#EXTINF:-1 group-title="HBO",HBO
-http://148.113.160.49:14188
-#EXTINF:-1 group-title="HBO",HBO+
-http://148.113.160.49:14192
-#EXTINF:-1 group-title="HBO",HBO+
-http://148.113.160.49:14193
-#EXTINF:-1 group-title="HBO",HBO+
-http://148.113.160.49:14194
-#EXTINF:-1 group-title="HBO",HBO 2
-https://fl2.moveonjoy.com/HBO_2/index.m3u8
-#EXTINF:-1 group-title="HBO",HBO +
-http://148.113.160.49:14193/
-#EXTINF:-1 group-title="HBO",HBO PREMIUM
-https://s.vdo.ai/vhs/1.m3u8
-#EXTINF:-1 group-title="HBO",HBO POP
-http://148.113.160.49:14180/
-#EXTINF:-1 group-title="HBO",HBO-pop
-http://148.113.160.49:14181
-#EXTINF:-1 group-title="HBO",HBO-pop
-http://148.113.160.49:14182
-#EXTINF:-1 group-title="HBO",HBO-pop
-http://148.113.160.49:14180
-#EXTINF:-1 group-title="HBO",HBO-mundi
-http://148.113.160.49:14184
-#EXTINF:-1 group-title="HBO",HBO MUNDL
-http://148.113.160.49:14183/
-#EXTINF:-1 group-title="HBO",HBO-mundi
-http://148.113.160.49:14183
-#EXTINF:-1 group-title="HBO",HBO-mundi
-http://148.113.160.49:14185
-#EXTINF:-1 group-title="HBO",HBO-xtreme
-http://148.113.160.49:14175
-#EXTINF:-1 group-title="HBO",HBO-xtreme
-http://148.113.160.49:14174
-#EXTINF:-1 group-title="HBO",HBO-xtreme
-http://148.113.160.49:14176
-#EXTINF:-1 group-title="HBO",HBO-family
-http://148.113.160.49:14191
-#EXTINF:-1 group-title="HBO",HBO XTREME
-http://148.113.160.49:14175/
-#EXTINF:-1 group-title="HBO",HBO FAMILY
-https://fl2.moveonjoy.com/HBO_FAMILY/index.m3u8
-#EXTINF:-1 group-title="HBO",HBO FANILY
-http://148.113.160.49:14190/
-#EXTINF:-1 group-title="HBO",HBO-family
-http://148.113.160.49:14189
-#EXTINF:-1 group-title="HBO",HBO-family
-http://148.113.160.49:14190
-#EXTINF:-1 group-title="HBO",HBO (1080p)
-http://178.219.128.68:64888/HBOHD
-#EXTINF:-1 group-title="HBO",HBO (1080p)
-http://109.233.89.166/HBO_HD/index.m3u8
+#EXTINF:-1 group-title="广东体育",广东体育
+http://14.145.179.29:8888/udp/239.77.0.6:5146
+#EXTINF:-1 group-title="广东体育",广东体育
+http://php.jdshipin.com/TVOD/iptv.php?id=gdty
+#EXTINF:-1 group-title="广东体育",广东体育
+http://218.13.170.98:9901/tsfile/live/0019_1.m3u8
+#EXTINF:-1 group-title="广东体育",广东体育
+http://38.75.136.137:98/gslb/dsdqpub/gdty.m3u8?auth=testpub
+#EXTINF:-1 group-title="广东体育",广东体育
+http://cdn2.veryfast.filegear-sg.me/live/gdty/stream.m3u8
+#EXTINF:-1 group-title="广东体育",广东体育
+http://120.238.94.10:9901/tsfile/live/1012_1.m3u8
+#EXTINF:-1 group-title="广东体育",广东体育
+http://218.15.183.23:9901/tsfile/live/23012_1.m3u8
+#EXTINF:-1 group-title="广东体育",广东体育
+http://183.237.95.108:9901/tsfile/live/1033_1.m3u8?key=txiptv&playlive=0&authid=0
+#EXTINF:-1 group-title="广东体育",广东体育
+http://120.198.101.106:9901/tsfile/live/1012_1.m3u8?key=txiptv
+#EXTINF:-1 group-title="无线新闻",无线新闻
+https://cdn9.163189.xyz/smt3.1.1.php?id=inews_twn
+#EXTINF:-1 group-title="无线新闻",﻿无线新闻台
+http://php.jdshipin.com/TVOD/iptv.php?id=tvbxw
+#EXTINF:-1 group-title="无线新闻",无线新闻
+https://cdn6.101.qzz.io/163189/wxxw
+#EXTINF:-1 group-title="无线新闻",无线新闻台
+http://php.jdshipin.com/smt.php?id=inews_twn
+#EXTINF:-1 group-title="无线新闻",无线新闻
+http://122.152.202.33/s/81a8a44f/index.m3u8?id=21
+#EXTINF:-1 group-title="无线新闻",无线新闻台
+http://hls.168.us.kg/u/83/master.m3u8
+#EXTINF:-1 group-title="无线新闻",无线新闻台
+http://cdn9.163189.xyz/smt1.1.php?id=inews_twn
+#EXTINF:-1 group-title="无线新闻",TVB无线新闻
+http://php.jdshipin.com/TVOD/iptv.php?id=wxxwt
+#EXTINF:-1 group-title="无线新闻",无线新闻台
+http://php.jdshipin.com:8880/smt.php?id=inews_twn
+#EXTINF:-1 group-title="无线新闻",无线新闻台
+http://smt.veryfast.filegear-sg.me/smt3.2.1.php?id=inews_twn
+#EXTINF:-1 group-title="无线新闻",无线新闻台
+http://cdn6.veryfast.filegear-sg.me/live/wxxw/stream.m3u8
+#EXTINF:-1 group-title="无线新闻",无线新闻台
+http://v2h.veryfast.filegear-sg.me/live/wxxw/stream.m3u8
+#EXTINF:-1 group-title="翡翠台",翡翠台
+http://cdn9.163189.xyz/smt1.1.php?id=jade_twn
+#EXTINF:-1 group-title="翡翠台",TVB翡翠台
+http://php.jdshipin.com:8880/smt.php?id=jade_twn
+#EXTINF:-1 group-title="翡翠台",翡翠台
+https://pull-f5-spe.ixigua.com/yeslivetv.com/291403ea-fabd-4dc1-bdfa-f14ebe74411e/index.m3u8
+#EXTINF:-1 group-title="翡翠台",翡翠台
+http://hls.168.us.kg/u/81/master.m3u8
+#EXTINF:-1 group-title="翡翠台",翡翠台
+http://php.jdshipin.com:8880/TVOD/iptv.php?id=fct3
+#EXTINF:-1 group-title="翡翠台",翡翠台6
+http://php.jdshipin.com/TVOD/iptv.php?id=fct
+#EXTINF:-1 group-title="翡翠台",翡翠台
+http://php.jdshipin.com/smt.php?id=jade_twn
+#EXTINF:-1 group-title="翡翠台",翡翠台
+http://smt.veryfast.filegear-sg.me/smt3.2.1.php?id=jade_twn
+#EXTINF:-1 group-title="翡翠台",翡翠台
+http://api.kkitv.itv888.vip:8080/streams/91wc8xdtj8/index.m3u8
+#EXTINF:-1 group-title="翡翠台",华丽翡翠台
+http://php.jdshipin.com/TVOD/iptv.php?id=huali2
+#EXTINF:-1 group-title="翡翠台",翡翠台
+http://api.kkitv.itv888.vip:8080/streams/jutaw8wu0j9/index.m3u8
+#EXTINF:-1 group-title="翡翠台",翡翠台
+http://cdn6.veryfast.filegear-sg.me/live/fct/stream.m3u8
+#EXTINF:-1 group-title="翡翠台",翡翠台8
+http://php.jdshipin.com/TVOD/iptv.php?id=fct3
+#EXTINF:-1 group-title="翡翠台",翡翠台
+http://smt.veryfast.filegear-sg.me/smt3.2.1.php?id=jade_xue
+#EXTINF:-1 group-title="翡翠台",翡翠台
+http://php.jdshipin.com/TVOD/iptv.php?id=fct2
+#EXTINF:-1 group-title="翡翠台",翡翠台
+http://122.152.202.33/s/81a8a44f/index.m3u8?id=53
+#EXTINF:-1 group-title="翡翠台",翡翠台
+http://120.198.101.106:9901/tsfile/live/1007_1.m3u8?key=txiptv
+#EXTINF:-1 group-title="翡翠台",翡翠台4K
+http://php.jdshipin.com:8880/TVOD/iptv.php?id=fct2
+#EXTINF:-1 group-title="翡翠台",翡翠台4K
+http://cdn6.veryfast.filegear-sg.me/live/fct4k/stream.m3u8
+#EXTINF:-1 group-title="翡翠台",翡翠台4K
+http://php.jdshipin.com/TVOD/iptv.php?id=fct4
+#EXTINF:-1 group-title="翡翠台",华丽翡翠台
+http://php.jdshipin.com/TVOD/iptv.php?id=huali
+#EXTINF:-1 group-title="翡翠台",华丽翡翠台
+http://php.jdshipin.com/smt.php?id=Tvbjade
+#EXTINF:-1 group-title="翡翠台",华丽翡翠台
+http://php.jdshipin.com:8880/smt.php?id=Wlt
+#EXTINF:-1 group-title="翡翠台",华丽翡翠台
+http://cdn9.veryfast.filegear-sg.me/live/jade/stream.m3u8
+#EXTINF:-1 group-title="翡翠台",华丽翡翠台
+http://v2h.veryfast.filegear-sg.me/live/hlfct/stream.m3u8
+#EXTINF:-1 group-title="翡翠台",翡翠台字幕
+http://o12.veryfast.filegear-sg.me/hls/fct/playlist.m3u8
