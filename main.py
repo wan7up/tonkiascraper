@@ -8,8 +8,7 @@ import shutil
 import csv
 
 # --- 配置部分 ---
-# 这里是你想要搜索的关键词列表
-KEYWORDS = ["无线新闻", "广东体育", "翡翠台", "VIU", "tvb plus", "Now Sports 精選", "tlc_twn", "Discovery", "國家地理", "NatGeo", "HBO"]
+KEYWORDS = ["无线新闻", "广东体育", "翡翠台", "VIU", "tvb plus", "Now Sports 精選", "Discovery", "國家地理", "NatGeo", "HBO"]
 DAYS_LIMIT = 30  
 DATA_FILE = "data.csv" 
 M3U_FILE = "tv.m3u"
@@ -45,7 +44,6 @@ def load_history():
                     }
             print(f"📖 Loaded {len(history)} items from history.")
         except Exception as e:
-            # 👇 之前就是漏了这部分导致报错
             print(f"⚠️ Error loading history: {e}")
     return history
 
@@ -103,7 +101,6 @@ def main():
 
     # --- 2. 加载历史数据 ---
     all_data = load_history()
-    
     current_date = datetime.now()
     cutoff_date = current_date - timedelta(days=DAYS_LIMIT)
 
@@ -129,46 +126,55 @@ def main():
                 search_input.clear()
                 search_input.input(kw)
                 
-                # 4. 点击搜索按钮 (模拟物理点击)
-                submit_btn = page.ele('tag:button@@type=submit') 
-                if not submit_btn:
-                    submit_btn = search_input.next('tag:button')
-                
-                if submit_btn:
-                    print("   - Clicking search button...")
-                    submit_btn.click()
-                else:
-                    print("   - Button not found, trying Enter key...")
+                # 4. 【核心修复】使用 JS 暴力提交表单
+                # 不再寻找按钮，而是直接找到输入框所属的 Form，强制 Submit
+                print("   - Submitting form via JS...")
+                try:
+                    # 尝试找到输入框的父级 Form 元素并提交
+                    # 这行代码的意思是：找到 search_input 的父级 form 标签，然后执行 submit()
+                    form = search_input.parent('tag:form')
+                    if form:
+                        # 使用 DrissionPage 的 run_js 直接执行原生 JS 提交，最稳
+                        page.run_js('arguments[0].submit()', form)
+                    else:
+                        # 如果找不到 form 标签，尝试回车兜底
+                        search_input.input('\n')
+                except Exception as e:
+                    print(f"   ⚠️ JS Submit failed: {e}, trying Enter key.")
                     search_input.input('\n')
 
-                # 5. 等待搜索结果加载
-                page.wait.load_start() 
+                # 5. 等待加载 (移除数量检查，改为纯等待)
+                page.wait.load_start()
                 
+                # 简单的动态等待：只要有结果就行，不判断数量是否达标
                 found_items = []
-                # 循环检查10次，每次间隔1.5秒
-                for i in range(10):
-                    found_items = page.eles('text:://')
+                prev_count = -1
+                
+                # 最多等 8 秒
+                for i in range(8):
+                    found_items = page.eles('text:://') # 寻找所有带 :// 的文本
                     count = len(found_items)
-                    print(f"     [Wait {i+1}] Found {count} links...")
                     
-                    # 如果结果数量大于10，说明搜索结果页加载成功了
-                    if count > 10:
-                        print("     -> Results loaded (Count > 10)")
-                        break
-                    time.sleep(1.5)
+                    # 只要数量稳定了（不再变化），就认为加载完了
+                    if count > 0 and count == prev_count:
+                         break
+                    
+                    prev_count = count
+                    time.sleep(1)
 
-                if len(found_items) <= 8:
-                     print(f"⚠️ Warning: Found only {len(found_items)} links. Search might have failed (Still on Homepage?).")
+                print(f"     -> Found {len(found_items)} potential links. Processing...")
 
-                # 6. 提取数据
+                # 6. 提取数据 (靠正则和日期过滤垃圾)
                 new_count = 0
                 for item in found_items:
                     try:
+                        # 提取链接
                         txt = item.text
                         url_match = re.search(r'((?:http|https|rtmp|rtsp)://[^\s<>"\u4e00-\u9fa5]+)', txt)
                         if not url_match: continue
                         url = url_match.group(1)
 
+                        # 提取日期 (这是区分“真结果”和“首页广告”的关键)
                         container = item
                         date_str = ""
                         channel_name = kw 
@@ -181,12 +187,15 @@ def main():
                                 mat = re.search(r'(\d{2,4}-\d{1,2}-\d{2,4})', container.text)
                                 if mat: date_str = mat.group(1)
                             
+                            # 提取台名
                             full_text = container.text
                             if kw in full_text:
                                 temp_name = full_text.split('http')[0].split(date_str)[0].strip()
                                 if len(temp_name) > 0 and len(temp_name) < 50:
                                     channel_name = clean_channel_name(temp_name)
 
+                        # 【核心过滤】只有找到了有效日期，才认为是有效结果
+                        # 首页的“联系我们”链接周围是不会有日期的，会被这里自动过滤
                         final_date = None
                         if date_str:
                             try:
@@ -199,10 +208,13 @@ def main():
                         
                         if final_date:
                             str_date = final_date.strftime('%Y-%m-%d')
+                            
+                            # 合并/更新逻辑
                             if url in all_data:
                                 old_date = datetime.strptime(all_data[url]['Date'], '%Y-%m-%d')
                                 if final_date > old_date:
                                     all_data[url]['Date'] = str_date
+                                    # 如果旧名字是默认关键字，新名字更详细，则更新名字
                                     if all_data[url]['Channel'] == kw and channel_name != kw:
                                         all_data[url]['Channel'] = channel_name
                             else:
@@ -210,7 +222,7 @@ def main():
                                 new_count += 1
                     except: continue
                 
-                print(f"   -> Processed. New unique links: {new_count}")
+                print(f"   -> Validated & Added: {new_count} new unique links.")
 
             except Exception as e:
                 print(f"❌ Error processing {kw}: {e}")
