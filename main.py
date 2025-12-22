@@ -8,7 +8,8 @@ import shutil
 import csv
 
 # --- 配置部分 ---
-KEYWORDS = ["无线新闻", "广东体育", "翡翠台", "VIU", "tvb plus", "Now Sports 精選", "Discovery", "國家地理", "NatGeo", "HBO"]
+# 这里是你想要搜索的关键词列表
+KEYWORDS = ["无线新闻", "广东体育", "翡翠台", "VIU", "tvb plus", "Now Sports 精選", "tlc_twn", "Discovery", "國家地理", "NatGeo", "HBO"]
 DAYS_LIMIT = 30  
 DATA_FILE = "data.csv" 
 M3U_FILE = "tv.m3u"
@@ -30,6 +31,7 @@ def clean_channel_name(text):
     return text.replace('\n', ' ').strip()
 
 def load_history():
+    """读取历史数据"""
     history = {}
     if os.path.exists(DATA_FILE):
         try:
@@ -41,9 +43,14 @@ def load_history():
                         'Date': row['Date'],
                         'Keyword': row['Keyword']
                     }
+            print(f"📖 Loaded {len(history)} items from history.")
+        except Exception as e:
+            # 👇 之前就是漏了这部分导致报错
+            print(f"⚠️ Error loading history: {e}")
     return history
 
 def save_data(data_dict):
+    """保存数据"""
     try:
         # 1. CSV
         with open(DATA_FILE, 'w', encoding='utf-8', newline='') as f:
@@ -97,7 +104,6 @@ def main():
     # --- 2. 加载历史数据 ---
     all_data = load_history()
     
-    # 获取当前日期，方便后续计算
     current_date = datetime.now()
     cutoff_date = current_date - timedelta(days=DAYS_LIMIT)
 
@@ -113,46 +119,39 @@ def main():
                     print("   - Cloudflare check failed, skipping...")
                     continue
                 
-                # 记录一下现在的 URL，用来判断是否搜索成功
-                start_url = page.url
-
                 # 2. 寻找输入框
                 search_input = page.ele('tag:input@@type!=hidden', timeout=5)
                 if not search_input:
                     print("❌ Input not found")
                     continue
                 
-                # 3. 输入关键字 (不依赖回车)
+                # 3. 输入关键字
                 search_input.clear()
                 search_input.input(kw)
                 
-                # 4. 【核心修复】显式寻找并点击搜索按钮
-                # Tonkiang 的搜索按钮通常是 type=submit 或者是一个 button 标签
+                # 4. 点击搜索按钮 (模拟物理点击)
                 submit_btn = page.ele('tag:button@@type=submit') 
                 if not submit_btn:
-                    # 如果找不到 submit，尝试找输入框旁边的按钮
                     submit_btn = search_input.next('tag:button')
                 
                 if submit_btn:
                     print("   - Clicking search button...")
                     submit_btn.click()
                 else:
-                    # 如果实在找不到按钮，尝试模拟回车
                     print("   - Button not found, trying Enter key...")
                     search_input.input('\n')
 
-                # 5. 【核心修复】等待 URL 变化或页面刷新
-                # 如果 URL 还是 tonkiang.us 且没带参数，说明没跳走
-                page.wait.load_start() # 等待新页面开始加载
+                # 5. 等待搜索结果加载
+                page.wait.load_start() 
                 
-                # 简单的等待逻辑：只要链接数量发生剧烈变化，或者超过8个，就算成功
                 found_items = []
+                # 循环检查10次，每次间隔1.5秒
                 for i in range(10):
                     found_items = page.eles('text:://')
                     count = len(found_items)
                     print(f"     [Wait {i+1}] Found {count} links...")
                     
-                    # 你的日志里说首页有 8 个，所以如果数量 > 10，说明肯定是结果页了
+                    # 如果结果数量大于10，说明搜索结果页加载成功了
                     if count > 10:
                         print("     -> Results loaded (Count > 10)")
                         break
@@ -161,7 +160,7 @@ def main():
                 if len(found_items) <= 8:
                      print(f"⚠️ Warning: Found only {len(found_items)} links. Search might have failed (Still on Homepage?).")
 
-                # 6. 提取数据 (逻辑不变)
+                # 6. 提取数据
                 new_count = 0
                 for item in found_items:
                     try:
