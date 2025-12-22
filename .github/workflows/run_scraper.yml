@@ -40,7 +40,12 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # 先把所有文件加进去
           git add .
-          # 👇 关键修改：加上 || echo "..." 防止报错
+          
+          # 👇 核心修改：强制添加 data.csv，无视 .gitignore 规则
+          git add -f data.csv
+          
           git commit -m "Auto-update IPTV playlist" || echo "⚠️ No changes to commit"
           git push || echo "⚠️ Nothing to push"
