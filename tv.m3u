@@ -171,6 +171,8 @@ http://218.15.183.23:9901/tsfile/live/23012_1.m3u8
 http://183.237.95.108:9901/tsfile/live/1033_1.m3u8?key=txiptv&playlive=0&authid=0
 #EXTINF:-1 group-title="广东体育",广东体育
 http://120.198.101.106:9901/tsfile/live/1012_1.m3u8?key=txiptv
+#EXTINF:-1 group-title="广东体育",广东体育
+http://14.145.179.29:8888/udp/239.77.0.112:5146
 #EXTINF:-1 group-title="无线新闻",无线新闻
 https://cdn9.163189.xyz/smt3.1.1.php?id=inews_twn
 #EXTINF:-1 group-title="无线新闻",﻿无线新闻台
@@ -247,5 +249,7 @@ http://cdn9.veryfast.filegear-sg.me/live/jade/stream.m3u8
 http://v2h.veryfast.filegear-sg.me/live/hlfct/stream.m3u8
 #EXTINF:-1 group-title="翡翠台",翡翠台字幕
 http://o12.veryfast.filegear-sg.me/hls/fct/playlist.m3u8
-#EXTINF:-1 group-title="广东体育",广东体育
-http://14.145.179.29:8888/udp/239.77.0.112:5146
+#EXTINF:-1 group-title="翡翠台",tvb翡翠台
+https://epg.pw/stream/fe02817d95c6d58f41e1ea8208b5a8c9462bf525b153819b0c3918406127925a.m3u8
+#EXTINF:-1 group-title="翡翠台",华丽翡翠台
+http://smt.veryfast.filegear-sg.me/smt3.2.1.php?id=Tvbjade
