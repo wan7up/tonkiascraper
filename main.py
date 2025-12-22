@@ -8,7 +8,7 @@ import shutil
 import csv
 
 # --- 配置部分 ---
-KEYWORDS = ["无线新闻", "广东体育", "翡翠台"] 
+KEYWORDS = ["无线新闻", "广东体育", "翡翠台", "VIU", "tvb plus", "Now Sports 精選", "Discovery", "國家地理", "NatGeo", "HBO"] 
 DAYS_LIMIT = 30  
 DATA_FILE = "data.csv" 
 M3U_FILE = "tv.m3u"
