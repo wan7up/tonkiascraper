@@ -5,3 +5,45 @@ http://php.jdshipin.com/smt.php?id=inews_twn
 http://122.152.202.33/s/81a8a44f/index.m3u8?id=21
 #EXTINF:-1 group-title="无线新闻",无线新闻
 https://cdn6.101.qzz.io/163189/wxxw
+#EXTINF:-1 group-title="广东体育",广东体育
+http://183.237.95.108:9901/tsfile/live/1033_1.m3u8?key=txiptv&playlive=0&authid=0
+#EXTINF:-1 group-title="广东体育",广东体育
+http://120.198.101.106:9901/tsfile/live/1012_1.m3u8?key=txiptv
+#EXTINF:-1 group-title="广东体育",广东体育
+http://218.15.183.23:9901/tsfile/live/23012_1.m3u8
+#EXTINF:-1 group-title="翡翠台",翡翠台
+http://php.jdshipin.com/smt.php?id=jade_twn
+#EXTINF:-1 group-title="翡翠台",翡翠台
+http://php.jdshipin.com/TVOD/iptv.php?id=fct2
+#EXTINF:-1 group-title="翡翠台",翡翠台
+http://120.198.101.106:9901/tsfile/live/1007_1.m3u8?key=txiptv
+#EXTINF:-1 group-title="VIU",VIU
+http://php.jdshipin.com/TVOD/iptv.php?id=viutv2
+#EXTINF:-1 group-title="VIU",VIU
+http://api.kkitv.itv888.vip:8080/streams/bvdslcl5cts/index.m3u8
+#EXTINF:-1 group-title="VIU",VIU
+http://php.jdshipin.com/TVOD/iptv.php?id=viutv
+#EXTINF:-1 group-title="tvb plus",tvb plus
+http://api.kkitv.itv888.vip:8080/streams/48uxa7dlbga/index.m3u8
+#EXTINF:-1 group-title="tvb plus",tvb plus
+http://grandprix2023.asuscomm.com:8892/bysid/82.m3u8
+#EXTINF:-1 group-title="tvb plus",tvb plus
+http://php.jdshipin.com/TVOD/iptv.php?id=tvbp
+#EXTINF:-1 group-title="Now Sports 精選",Now Sports 精選
+http://hls.168.us.kg/u/630/master.m3u8
+#EXTINF:-1 group-title="Discovery",Discovery
+https://nlb2-live.emitstream.com/hls/3mn7wpcv7hbmxmdzaxap/master.m3u8
+#EXTINF:-1 group-title="Discovery",Discovery
+https://discoverfilm-discoverfilm-1-nl.samsung.wurl.tv/playlist.m3u8
+#EXTINF:-1 group-title="Discovery",Discovery
+http://myott.top/stream/DT6QU63K5VX/146.m3u8
+#EXTINF:-1 group-title="NatGeo",NatGeo Wild US
+http://38b891c9.rossteleccom.net/iptv/SQNLRPBE7FFE8V/133/index.m3u8
+#EXTINF:-1 group-title="NatGeo",NatGeo Wild US
+https://tv.arectv13.sbs/live/natgeowild.m3u8
+#EXTINF:-1 group-title="HBO",HBO
+http://148.113.160.49:14187/
+#EXTINF:-1 group-title="HBO",HBO
+http://148.113.160.49:14187
+#EXTINF:-1 group-title="HBO",HBO
+http://148.113.160.49:14188
