@@ -1,4 +1,16 @@
 Now Sports 精選,http://hls.168.us.kg/u/630/master.m3u8
+TVB Plus,http://grandprix2023.asuscomm.com:8892/bysid/82.m3u8
+TVB Plus,http://php.jdshipin.com/TVOD/iptv.php?id=j2
+TVB PLUS,http://smart.cityq.xyz:8278/j2_twn/playlist.m3u8?tid=MFCF3274854132748541&ct=19254&tsum=699466c18aac56202ad1d2843fd21032
+TVB PLUS,http://smart.cityq.xyz:8278/j2_twn/playlist.m3u8?tid=MD4D2403778024037780&ct=20241&tsum=c1359a362c3f4447b548ca3eeaced81f
+TVB Plus,http://hls.168.us.kg/u/82/master.m3u8
+TVB Plus,http://php.jdshipin.com/TVOD/iptv.php?id=tvbp
+TVB Plus,http://php.jdshipin.com:8880/TVOD/iptv.php?id=tvbp
+TVB Plus,http://php.jdshipin.com:8880/TVOD/iptv.php?id=j2
+TVB PLUS,http://smt.veryfast.filegear-sg.me/smt3.2.1.php?id=j2_twn
+TVB PLUS,http://cdn6.veryfast.filegear-sg.me/live/tvbp/stream.m3u8
+TVB Plus,http://api.kkitv.itv888.vip:8080/streams/48uxa7dlbga/index.m3u8
+TVB plus备,https://vdm6-hw.nbgdsygs.com/live/h6-2.flv
 VIUTV,http://php.jdshipin.com/TVOD/iptv.php?id=viutv2
 Viu6,http://api.kkitv.itv888.vip:8080/streams/bvdslcl5cts/index.m3u8
 VIUTV,http://smart.cityq.xyz:8278/viu1_twn/playlist.m3u8?tid=MF1F7819763178197631&ct=20241&tsum=73bf97ade6499317dabf81cdb36740a2
@@ -35,6 +47,7 @@ TLC旅遊生活,http://smart.cityq.xyz:8278/tlc_twn/playlist.m3u8?tid=mc609f36f8
 广东体育,http://218.15.183.23:9901/tsfile/live/23012_1.m3u8
 广东体育,http://183.237.95.108:9901/tsfile/live/1033_1.m3u8?key=txiptv&playlive=0&authid=0
 广东体育,http://120.198.101.106:9901/tsfile/live/1012_1.m3u8?key=txiptv
+广东体育,http://183.0.203.169:9999/udp/239.77.0.112:5146
 无线新闻,https://cdn9.163189.xyz/smt3.1.1.php?id=inews_twn
 ﻿无线新闻台,http://php.jdshipin.com/TVOD/iptv.php?id=tvbxw
 无线新闻,https://cdn6.101.qzz.io/163189/wxxw
@@ -75,16 +88,4 @@ tvb翡翠台,https://epg.pw/stream/fe02817d95c6d58f41e1ea8208b5a8c9462bf525b1538
 翡翠台华丽,http://smart.cityq.xyz:8278/Wlt/playlist.m3u8?tid=MFDF9126586991265869&ct=20241&tsum=951b446ed2eee9f5ae67fbc4a0fb8a3d
 翡翠台华丽,http://smart.cityq.xyz:8278/Tvbjade/playlist.m3u8?tid=MF7F5665582956655829&ct=19396&tsum=798dd508a520591696de2b87ed95b3c2
 华丽翡翠台,http://php.jdshipin.com/TVOD/iptv.php?id=huali
-广东体育,http://183.0.203.169:9999/udp/239.77.0.112:5146
-TVB Plus,http://grandprix2023.asuscomm.com:8892/bysid/82.m3u8
-TVB Plus,http://php.jdshipin.com/TVOD/iptv.php?id=j2
-TVB PLUS,http://smart.cityq.xyz:8278/j2_twn/playlist.m3u8?tid=MFCF3274854132748541&ct=19254&tsum=699466c18aac56202ad1d2843fd21032
-TVB PLUS,http://smart.cityq.xyz:8278/j2_twn/playlist.m3u8?tid=MD4D2403778024037780&ct=20241&tsum=c1359a362c3f4447b548ca3eeaced81f
-TVB Plus,http://hls.168.us.kg/u/82/master.m3u8
-TVB Plus,http://php.jdshipin.com/TVOD/iptv.php?id=tvbp
-TVB Plus,http://php.jdshipin.com:8880/TVOD/iptv.php?id=tvbp
-TVB Plus,http://php.jdshipin.com:8880/TVOD/iptv.php?id=j2
-TVB PLUS,http://smt.veryfast.filegear-sg.me/smt3.2.1.php?id=j2_twn
-TVB PLUS,http://cdn6.veryfast.filegear-sg.me/live/tvbp/stream.m3u8
-TVB Plus,http://api.kkitv.itv888.vip:8080/streams/48uxa7dlbga/index.m3u8
-TVB plus备,https://vdm6-hw.nbgdsygs.com/live/h6-2.flv
+广东体育,http://113.102.83.21:4022/udp/239.77.1.97:5146
