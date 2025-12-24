@@ -48,6 +48,7 @@ TLC旅遊生活,http://smart.cityq.xyz:8278/tlc_twn/playlist.m3u8?tid=mc609f36f8
 广东体育,http://183.237.95.108:9901/tsfile/live/1033_1.m3u8?key=txiptv&playlive=0&authid=0
 广东体育,http://120.198.101.106:9901/tsfile/live/1012_1.m3u8?key=txiptv
 广东体育,http://183.0.203.169:9999/udp/239.77.0.112:5146
+广东体育,http://113.102.83.21:4022/udp/239.77.1.97:5146
 无线新闻,https://cdn9.163189.xyz/smt3.1.1.php?id=inews_twn
 ﻿无线新闻台,http://php.jdshipin.com/TVOD/iptv.php?id=tvbxw
 无线新闻,https://cdn6.101.qzz.io/163189/wxxw
@@ -88,4 +89,5 @@ tvb翡翠台,https://epg.pw/stream/fe02817d95c6d58f41e1ea8208b5a8c9462bf525b1538
 翡翠台华丽,http://smart.cityq.xyz:8278/Wlt/playlist.m3u8?tid=MFDF9126586991265869&ct=20241&tsum=951b446ed2eee9f5ae67fbc4a0fb8a3d
 翡翠台华丽,http://smart.cityq.xyz:8278/Tvbjade/playlist.m3u8?tid=MF7F5665582956655829&ct=19396&tsum=798dd508a520591696de2b87ed95b3c2
 华丽翡翠台,http://php.jdshipin.com/TVOD/iptv.php?id=huali
-广东体育,http://113.102.83.21:4022/udp/239.77.1.97:5146
+tvb無線新聞,https://epg.pw/stream/19d1cd44fca23238190d5ada7b08552382bf391f77d6b4348f3e3ae56afe7c9f.m3u8
+华丽翡翠台,http://cdn9.163189.xyz/smt1.1.php?id=Tvbjade
