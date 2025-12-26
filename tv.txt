@@ -49,6 +49,7 @@ TLC旅遊生活,http://smart.cityq.xyz:8278/tlc_twn/playlist.m3u8?tid=mc609f36f8
 广东体育,http://120.198.101.106:9901/tsfile/live/1012_1.m3u8?key=txiptv
 广东体育,http://183.0.203.169:9999/udp/239.77.0.112:5146
 广东体育,http://113.102.83.21:4022/udp/239.77.1.97:5146
+广东体育,http://113.109.250.64:9999/udp/239.77.1.97:5146
 无线新闻,https://cdn9.163189.xyz/smt3.1.1.php?id=inews_twn
 ﻿无线新闻台,http://php.jdshipin.com/TVOD/iptv.php?id=tvbxw
 无线新闻,https://cdn6.101.qzz.io/163189/wxxw
@@ -91,4 +92,6 @@ tvb翡翠台,https://epg.pw/stream/fe02817d95c6d58f41e1ea8208b5a8c9462bf525b1538
 翡翠台华丽,http://smart.cityq.xyz:8278/Tvbjade/playlist.m3u8?tid=MF7F5665582956655829&ct=19396&tsum=798dd508a520591696de2b87ed95b3c2
 华丽翡翠台,http://php.jdshipin.com/TVOD/iptv.php?id=huali
 华丽翡翠台,http://cdn9.163189.xyz/smt1.1.php?id=Tvbjade
-广东体育,http://113.109.250.64:9999/udp/239.77.1.97:5146
+广东体育,http://ymz.stkeyu.top:8303/udp/239.77.0.112:5146
+TVB無線新聞,https://epg.pw/stream/7a92efcc03038ae4c87f282eaabe2f8a51b1e4b93e5f9f67cfca15381583a8ba.ctv
+HBO_HD,https://smart.pendy.dpdns.org/Smart.php?id=hbohd_twn
