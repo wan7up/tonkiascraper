@@ -102,3 +102,5 @@ tvb翡翠台,https://epg.pw/stream/fe02817d95c6d58f41e1ea8208b5a8c9462bf525b1538
 翡翠台北美版(TVB J1),http://php.jdshipin.com/TVOD/iptv.php?id=j1
 TVB Jade (翡翠台) (720p),https://cdn.hklive.tv/xxxx/81/index.m3u8
 TVB Jade (翡翠台) (720p),https://cloudfront41.lexanetwork.com:1344/relay01/livestream002.sdp/playlist.m3u8
+广东体育,http://14.21.173.14:8888/udp/239.77.1.97:5146
+无线新闻台,https://stream1.freetv.fun/184b2e86d862ac0f26c86bc59f1ea7882af76c7ae6691e448c20dcd7b9374870.m3u8
