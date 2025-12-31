@@ -111,6 +111,8 @@ http://ymz.stkeyu.top:8303/udp/239.77.0.112:5146
 http://121.33.112.47:54321/udp/239.77.0.112:5146
 #EXTINF:-1 group-title="广东体育",广东体育
 http://183.30.202.12:8000/udp/239.77.0.6:5146
+#EXTINF:-1 group-title="广东体育",广东体育
+http://14.21.173.14:8888/udp/239.77.1.97:5146
 #EXTINF:-1 group-title="无线新闻",无线新闻
 https://cdn9.163189.xyz/smt3.1.1.php?id=inews_twn
 #EXTINF:-1 group-title="无线新闻",﻿无线新闻台
@@ -143,6 +145,8 @@ http://v2h.veryfast.filegear-sg.me/live/wxxw/stream.m3u8
 https://epg.pw/stream/19d1cd44fca23238190d5ada7b08552382bf391f77d6b4348f3e3ae56afe7c9f.m3u8
 #EXTINF:-1 group-title="无线新闻",TVB無線新聞
 https://epg.pw/stream/7a92efcc03038ae4c87f282eaabe2f8a51b1e4b93e5f9f67cfca15381583a8ba.ctv
+#EXTINF:-1 group-title="无线新闻",无线新闻台
+https://stream1.freetv.fun/184b2e86d862ac0f26c86bc59f1ea7882af76c7ae6691e448c20dcd7b9374870.m3u8
 #EXTINF:-1 group-title="翡翠台",翡翠台
 http://php.jdshipin.com:8880/TVOD/iptv.php?id=fct3
 #EXTINF:-1 group-title="翡翠台",翡翠台
@@ -208,6 +212,18 @@ https://cdn.hklive.tv/xxxx/81/index.m3u8
 #EXTINF:-1 group-title="翡翠台",TVB Jade (翡翠台) (720p)
 https://cloudfront41.lexanetwork.com:1344/relay01/livestream002.sdp/playlist.m3u8
 #EXTINF:-1 group-title="广东体育",广东体育
-http://14.21.173.14:8888/udp/239.77.1.97:5146
+http://113.101.244.14:10000/udp/239.77.0.6:5146
+#EXTINF:-1 group-title="广东体育",广东体育
+https://live.catvod.com/iptv.php?id=gdty01
+#EXTINF:-1 group-title="无线新闻",无线新闻
+https://live.catvod.com/live.php?id=inews_twn
+#EXTINF:-1 group-title="无线新闻",无线新闻
+https://live.catvod.com/iptv.php?id=tvbxw01
 #EXTINF:-1 group-title="无线新闻",无线新闻台
-https://stream1.freetv.fun/184b2e86d862ac0f26c86bc59f1ea7882af76c7ae6691e448c20dcd7b9374870.m3u8
+https://live.catvod.com/iptv.php?id=wxxw01
+#EXTINF:-1 group-title="TVB PLUS",TVB Plus
+https://live.catvod.com/iptv.php?id=tvbplus2
+#EXTINF:-1 group-title="tlc_twn",TLC旅遊生活
+https://live.catvod.com/live.php?id=tlc_twn
+#EXTINF:-1 group-title="hbohd_twn",HBO
+https://live.catvod.com/live.php?id=hbohd_twn
