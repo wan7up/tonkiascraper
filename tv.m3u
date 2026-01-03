@@ -129,6 +129,10 @@ http://14.21.173.14:8888/udp/239.77.1.97:5146
 http://113.101.244.14:10000/udp/239.77.0.6:5146
 #EXTINF:-1 group-title="广东体育",广东体育
 https://live.catvod.com/iptv.php?id=gdty01
+#EXTINF:-1 group-title="广东体育",广东体育
+http://14.19.203.66:4022/udp/239.77.0.168:5146
+#EXTINF:-1 group-title="广东体育",广东体育HD
+http://114.132.184.239:6080/channel/103a5af0/index.m3u8
 #EXTINF:-1 group-title="无线新闻",无线新闻
 https://cdn9.163189.xyz/smt3.1.1.php?id=inews_twn
 #EXTINF:-1 group-title="无线新闻",﻿无线新闻台
@@ -252,6 +256,4 @@ https://live.catvod.com/iptv.php?id=huali02
 #EXTINF:-1 group-title="翡翠台",翡翠台（字幕）
 https://live.catvod.com/iptv.php?id=fctsub
 #EXTINF:-1 group-title="广东体育",广东体育
-http://14.19.203.66:4022/udp/239.77.0.168:5146
-#EXTINF:-1 group-title="广东体育",广东体育HD
-http://114.132.184.239:6080/channel/103a5af0/index.m3u8
+http://113.101.244.201:10000/udp/239.77.0.6:5146
