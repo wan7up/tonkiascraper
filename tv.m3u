@@ -133,6 +133,8 @@ https://live.catvod.com/iptv.php?id=gdty01
 http://14.19.203.66:4022/udp/239.77.0.168:5146
 #EXTINF:-1 group-title="广东体育",广东体育HD
 http://114.132.184.239:6080/channel/103a5af0/index.m3u8
+#EXTINF:-1 group-title="广东体育",广东体育
+http://113.101.244.201:10000/udp/239.77.0.6:5146
 #EXTINF:-1 group-title="无线新闻",无线新闻
 https://cdn9.163189.xyz/smt3.1.1.php?id=inews_twn
 #EXTINF:-1 group-title="无线新闻",﻿无线新闻台
@@ -256,4 +258,28 @@ https://live.catvod.com/iptv.php?id=huali02
 #EXTINF:-1 group-title="翡翠台",翡翠台（字幕）
 https://live.catvod.com/iptv.php?id=fctsub
 #EXTINF:-1 group-title="广东体育",广东体育
-http://113.101.244.201:10000/udp/239.77.0.6:5146
+http://183.33.57.149:8686/udp/239.77.0.168:5146
+#EXTINF:-1 group-title="广东体育",广东体育
+http://rihou.cc:555/tv/[Cx]
+#EXTINF:-1 group-title="无线新闻",无线新闻
+http://rihou.cc:555/tv/[SX]
+#EXTINF:-1 group-title="无线新闻",无线新闻
+http://rihou.cc:555/tv/[PL]
+#EXTINF:-1 group-title="无线新闻",无线新闻
+http://rihou.cc:555/tv/[Pd]
+#EXTINF:-1 group-title="无线新闻",无线新闻
+http://rihou.cc:555/tv/[Bx]
+#EXTINF:-1 group-title="无线新闻",无线新闻
+http://rihou.cc:555/tv/[Mt]
+#EXTINF:-1 group-title="翡翠台",翡翠台字幕
+http://o12.veryfast.filegear-sg.me/hls/fct/playlist.m3u8
+#EXTINF:-1 group-title="VIU",ViuTV
+http://grandprix2023.asuscomm.com:8889/bysid/99.m3u8
+#EXTINF:-1 group-title="VIU",ViuTVsix
+http://grandprix2023.asuscomm.com:8889/bysid/96.m3u8
+#EXTINF:-1 group-title="VIU",VIUTV-英
+http://rihou.cc:555/tv/[SX]VIUTV
+#EXTINF:-1 group-title="VIU",VIUTV-壹
+http://rihou.cc:555/tv/[Mt]VIUTV
+#EXTINF:-1 group-title="VIU",VIUTV-粤
+http://rihou.cc:555/tv/[PL]VIUTV

@@ -65,6 +65,7 @@ TLC旅遊生活,https://live.catvod.com/live.php?id=tlc_twn
 广东体育,https://live.catvod.com/iptv.php?id=gdty01
 广东体育,http://14.19.203.66:4022/udp/239.77.0.168:5146
 广东体育HD,http://114.132.184.239:6080/channel/103a5af0/index.m3u8
+广东体育,http://113.101.244.201:10000/udp/239.77.0.6:5146
 无线新闻,https://cdn9.163189.xyz/smt3.1.1.php?id=inews_twn
 ﻿无线新闻台,http://php.jdshipin.com/TVOD/iptv.php?id=tvbxw
 无线新闻,https://cdn6.101.qzz.io/163189/wxxw
@@ -126,4 +127,16 @@ TVB Jade (翡翠台) (720p),https://cloudfront41.lexanetwork.com:1344/relay01/li
 华丽翡翠台,http://smt.veryfast.filegear-sg.me/smt3.2.1.php?id=Tvbjade
 华丽翡翠台,https://live.catvod.com/iptv.php?id=huali02
 翡翠台（字幕）,https://live.catvod.com/iptv.php?id=fctsub
-广东体育,http://113.101.244.201:10000/udp/239.77.0.6:5146
+广东体育,http://183.33.57.149:8686/udp/239.77.0.168:5146
+广东体育,http://rihou.cc:555/tv/[Cx]
+无线新闻,http://rihou.cc:555/tv/[SX]
+无线新闻,http://rihou.cc:555/tv/[PL]
+无线新闻,http://rihou.cc:555/tv/[Pd]
+无线新闻,http://rihou.cc:555/tv/[Bx]
+无线新闻,http://rihou.cc:555/tv/[Mt]
+翡翠台字幕,http://o12.veryfast.filegear-sg.me/hls/fct/playlist.m3u8
+ViuTV,http://grandprix2023.asuscomm.com:8889/bysid/99.m3u8
+ViuTVsix,http://grandprix2023.asuscomm.com:8889/bysid/96.m3u8
+VIUTV-英,http://rihou.cc:555/tv/[SX]VIUTV
+VIUTV-壹,http://rihou.cc:555/tv/[Mt]VIUTV
+VIUTV-粤,http://rihou.cc:555/tv/[PL]VIUTV
