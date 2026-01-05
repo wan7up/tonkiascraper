@@ -6,8 +6,15 @@ def generate_tvo():
     INPUT_CSV = "data.csv"
     OUTPUT_M3U = "tvo.m3u"
     
-    # 想要的频道顺序 (这些既是搜索词，也是最终显示的频道名)
+    # EPG 地址 (Fanmingming)
+    EPG_URL = "https://raw.githubusercontent.com/fanmingming/live/main/e.xml"
+
+    # 想要的频道顺序
+    # 注意：这些名字将作为 tvg-name 用于匹配 EPG，请尽量使用标准台名
     TARGET_CHANNELS = ["翡翠台", "无线新闻", "TVB PLUS", "VIU", "广东体育"]
+    
+    # 每个频道保留的最大数量
+    MAX_COUNT_PER_CHANNEL = 10
     # ----------------
     
     print(f"🚀 开始生成定制列表: {OUTPUT_M3U}")
@@ -22,18 +29,18 @@ def generate_tvo():
     with open(INPUT_CSV, 'r', encoding='utf-8-sig') as f:
         reader = csv.DictReader(f)
         
-        # 自动识别列名 (防止大小写或空格问题)
+        # 自动识别列名
         headers = reader.fieldnames
         if not headers:
             print("❌ CSV 文件为空！")
             return
             
-        # 找到正确的列名 (你的文件里应该是 'Channel', 'URL', 'Date')
+        # 找到正确的列名
         channel_col = next((h for h in headers if h.strip().lower() == 'channel'), None)
         url_col = next((h for h in headers if h.strip().lower() == 'url'), None)
         date_col = next((h for h in headers if h.strip().lower() == 'date'), None)
         
-        # 如果找不到 Channel 列，尝试找 Name 列兼容
+        # 兼容性处理
         if not channel_col:
             channel_col = next((h for h in headers if h.strip().lower() == 'name'), None)
 
@@ -42,7 +49,6 @@ def generate_tvo():
             return
 
         for row in reader:
-            # 标准化数据
             all_data.append({
                 'Channel': row.get(channel_col, ''),
                 'URL': row.get(url_col, ''),
@@ -50,26 +56,24 @@ def generate_tvo():
             })
 
     # 2. 准备生成 M3U
-    m3u_lines = ["#EXTM3U"]
-    count = 0
+    # 【新增】在头部添加 x-tvg-url 引用 EPG
+    m3u_lines = [f'#EXTM3U x-tvg-url="{EPG_URL}"']
+    
+    total_count = 0
 
     # 3. 按指定顺序遍历
     for target in TARGET_CHANNELS:
         # 3.1 筛选逻辑
-        # 在 'Channel' 列中查找包含目标词的行 (不区分大小写)
         matches = []
         for row in all_data:
-            channel_name = row['Channel']
-            if target.lower() in channel_name.lower():
+            if target.lower() in row['Channel'].lower():
                 matches.append(row)
         
-        # 3.2 【VIU 特殊过滤】
-        # 如果是 VIU，剔除包含 "6" 或 "SIX" 的
+        # 3.2 VIU 特殊过滤 (剔除 6 或 SIX)
         if target == "VIU":
             filtered_matches = []
             for item in matches:
                 c_name = item['Channel'].upper()
-                # 检查是否含有 6 或 SIX
                 if '6' not in c_name and 'SIX' not in c_name:
                     filtered_matches.append(item)
             matches = filtered_matches
@@ -77,25 +81,29 @@ def generate_tvo():
         if not matches:
             continue
 
-        # 3.3 排序逻辑
-        # 权重1: URL 里有 jdshipin (True排前)
-        # 权重2: 日期 (越新排前)
+        # 3.3 排序逻辑 (jdshipin优先 > 日期降序)
         matches.sort(
             key=lambda x: ("jdshipin" in x['URL'], x['Date']), 
             reverse=True
         )
 
-        # 3.4 写入数据 (使用 target 作为频道名)
+        # 3.4 【新增】只保留前 N 个
+        matches = matches[:MAX_COUNT_PER_CHANNEL]
+
+        # 3.5 写入数据
         for item in matches:
-            m3u_lines.append(f"#EXTINF:-1,{target}")
+            # 【新增】添加 tvg-name="{target}" 以匹配 EPG
+            # 如果不加这个，播放器不知道这个台对应 EPG 里的哪一个
+            line_info = f'#EXTINF:-1 tvg-name="{target}" group-title="精选频道",{target}'
+            m3u_lines.append(line_info)
             m3u_lines.append(item['URL'])
-            count += 1
+            total_count += 1
 
     # 4. 保存
     with open(OUTPUT_M3U, 'w', encoding='utf-8') as f:
         f.write("\n".join(m3u_lines))
     
-    print(f"✅ 生成完毕！已保存 {count} 个频道到 {OUTPUT_M3U}")
+    print(f"✅ 生成完毕！每个频道限制 {MAX_COUNT_PER_CHANNEL} 个，共 {total_count} 个源，已保存至 {OUTPUT_M3U}")
 
 if __name__ == "__main__":
     generate_tvo()
