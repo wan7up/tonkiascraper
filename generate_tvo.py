@@ -6,8 +6,8 @@ def generate_tvo():
     INPUT_CSV = "data.csv"
     OUTPUT_M3U = "tvo.m3u"
     
-    # EPG 地址 (Fanmingming)
-    EPG_URL = "https://raw.githubusercontent.com/fanmingming/live/main/e.xml"
+    # EPG 地址
+    EPG_URL = "http://epg.51zmt.top:8000/e.xml"
 
     # 想要的频道顺序
     # 注意：这些名字将作为 tvg-name 用于匹配 EPG，请尽量使用标准台名
