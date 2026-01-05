@@ -1,0 +1,41 @@
+name: Generate TVO Playlist
+
+on:
+  schedule:
+    # GitHub Actions 使用 UTC 时间
+    # UTC 00:00 = 北京时间 08:00
+    - cron: '0 0 * * *'
+  
+  # 加上这个，方便你随时想测的时候手动点一下 Run
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+
+    # 这一步是运行你的新脚本
+    - name: Run Generator Script
+      run: python generate_tvo.py
+
+    - name: Commit and Push changes
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        
+        # ⚠️ 关键：先拉取最新代码，防止和主程序冲突
+        git pull
+        
+        # 强制提交 tvo.m3u
+        git add -f tvo.m3u
+        
+        git commit -m "Update custom playlist: $(date)" || echo "No changes to commit"
+        git push
