@@ -17,7 +17,7 @@ def generate_tvo():
         },
         "无线新闻": {
             "display_name": "无线新闻",
-            "logo": "https://raw.githubusercontent.com/fanmingming/live/main/tv/无线新闻.png"
+            "logo": "https://raw.githubusercontent.com/fanmingming/live/main/tv/无线新闻台.png"
         },
         "TVB PLUS": {
             "display_name": "TVBPlus",
@@ -26,7 +26,7 @@ def generate_tvo():
         "VIU": {  
             # 搜索时用 "VIU"，但生成时改名为 "VIUTV" 以匹配 EPG 和 Logo
             "display_name": "VIUTV", 
-            "logo": "https://raw.githubusercontent.com/fanmingming/live/main/tv/VIUTV.png"
+            "logo": "https://raw.githubusercontent.com/fanmingming/live/main/tv/viutv.png"
         },
         "广东体育": {
             "display_name": "广东体育",
