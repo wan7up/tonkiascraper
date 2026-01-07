@@ -151,6 +151,10 @@ http://183.33.57.149:8686/udp/239.77.0.168:5146
 http://rihou.cc:555/tv/[Cx]
 #EXTINF:-1 group-title="广东体育",广东体育
 http://116.22.147.183:54321/udp/239.77.0.112:5146
+#EXTINF:-1 group-title="广东体育",广东体育
+http://14.21.172.209:8888/udp/239.77.0.112:5146
+#EXTINF:-1 group-title="广东体育",广东体育
+http://74.91.26.218:82/live/gdty.m3u8
 #EXTINF:-1 group-title="无线新闻",无线新闻
 https://cdn9.163189.xyz/smt3.1.1.php?id=inews_twn
 #EXTINF:-1 group-title="无线新闻",﻿无线新闻台
@@ -201,6 +205,10 @@ http://rihou.cc:555/tv/[Pd]
 http://rihou.cc:555/tv/[Bx]
 #EXTINF:-1 group-title="无线新闻",无线新闻
 http://rihou.cc:555/tv/[Mt]
+#EXTINF:-1 group-title="无线新闻",无线新闻
+https://stream1.freetv.fun/72987f3fa96af219332cc264f14fbe126748e5dae4c53c74f45f3856e926756e.m3u8
+#EXTINF:-1 group-title="无线新闻",无线新闻台
+http://74.91.26.218:82/live/inews.m3u8
 #EXTINF:-1 group-title="翡翠台",翡翠台
 http://php.jdshipin.com:8880/TVOD/iptv.php?id=fct3
 #EXTINF:-1 group-title="翡翠台",翡翠台
@@ -285,13 +293,9 @@ https://live.catvod.com/iptv.php?id=huali02
 https://live.catvod.com/iptv.php?id=fctsub
 #EXTINF:-1 group-title="翡翠台",翡翠台字幕
 http://o12.veryfast.filegear-sg.me/hls/fct/playlist.m3u8
-#EXTINF:-1 group-title="广东体育",广东体育
-http://14.21.172.209:8888/udp/239.77.0.112:5146
-#EXTINF:-1 group-title="广东体育",广东体育
-http://74.91.26.218:82/live/gdty.m3u8
-#EXTINF:-1 group-title="无线新闻",无线新闻
-https://stream1.freetv.fun/72987f3fa96af219332cc264f14fbe126748e5dae4c53c74f45f3856e926756e.m3u8
-#EXTINF:-1 group-title="无线新闻",无线新闻台
-http://74.91.26.218:82/live/inews.m3u8
 #EXTINF:-1 group-title="翡翠台",翡翠台
 http://74.91.26.218:82/live/jade.m3u8
+#EXTINF:-1 group-title="广东体育",广东体育
+http://14.21.172.209:8888/udp/239.77.1.97:5146
+#EXTINF:-1 group-title="TVB PLUS",TVB Plus
+http://74.91.26.218:82/live/j2.m3u8
