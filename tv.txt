@@ -12,6 +12,7 @@ TVB PLUS,http://cdn6.veryfast.filegear-sg.me/live/tvbp/stream.m3u8
 TVB Plus,http://api.kkitv.itv888.vip:8080/streams/48uxa7dlbga/index.m3u8
 TVB plus备,https://vdm6-hw.nbgdsygs.com/live/h6-2.flv
 TVB Plus,https://live.catvod.com/iptv.php?id=tvbplus2
+TVB Plus,http://74.91.26.218:82/live/j2.m3u8
 VIUTV,http://php.jdshipin.com/TVOD/iptv.php?id=viutv2
 Viu6,http://api.kkitv.itv888.vip:8080/streams/bvdslcl5cts/index.m3u8
 VIUTV,http://smart.cityq.xyz:8278/viu1_twn/playlist.m3u8?tid=MF1F7819763178197631&ct=20241&tsum=73bf97ade6499317dabf81cdb36740a2
@@ -40,8 +41,8 @@ viutv6,https://live.catvod.com/live.php?id=viusix_twn
 VIU TV,https://live.catvod.com/iptv.php?id=viutv02
 ViuTV,http://grandprix2023.asuscomm.com:8889/bysid/99.m3u8
 ViuTVsix,http://grandprix2023.asuscomm.com:8889/bysid/96.m3u8
-VIUTV-英,http://rihou.cc:555/tv/[SX]VIUTV
-VIUTV-壹,http://rihou.cc:555/tv/[Mt]VIUTV
+VIUTV-粤,http://rihou.cc:555/tv/[SX]VIUTV
+VIUTV-粤,http://rihou.cc:555/tv/[Mt]VIUTV
 VIUTV-粤,http://rihou.cc:555/tv/[PL]VIUTV
 Discovery HD,http://smart.cityq.xyz:8278/discoveryhd_twn/playlist.m3u8?tid=mc609f36f8a214&ct=11617719300&tsum=be73404e18c83a0b9e6a60b7d6b22887
 HBO,http://smart.cityq.xyz:8278/hbohd_twn/playlist.m3u8?tid=mc609f36f8a214&ct=11617719300&tsum=ca82da37e8eeb07511bfc6b5f9e9795f
@@ -76,6 +77,7 @@ TLC旅遊生活,https://live.catvod.com/live.php?id=tlc_twn
 广东体育,http://116.22.147.183:54321/udp/239.77.0.112:5146
 广东体育,http://14.21.172.209:8888/udp/239.77.0.112:5146
 广东体育,http://74.91.26.218:82/live/gdty.m3u8
+广东体育,http://14.21.172.209:8888/udp/239.77.1.97:5146
 无线新闻,https://cdn9.163189.xyz/smt3.1.1.php?id=inews_twn
 ﻿无线新闻台,http://php.jdshipin.com/TVOD/iptv.php?id=tvbxw
 无线新闻,https://cdn6.101.qzz.io/163189/wxxw
@@ -146,5 +148,4 @@ TVB Jade (翡翠台) (720p),https://cloudfront41.lexanetwork.com:1344/relay01/li
 翡翠台（字幕）,https://live.catvod.com/iptv.php?id=fctsub
 翡翠台字幕,http://o12.veryfast.filegear-sg.me/hls/fct/playlist.m3u8
 翡翠台,http://74.91.26.218:82/live/jade.m3u8
-广东体育,http://14.21.172.209:8888/udp/239.77.1.97:5146
-TVB Plus,http://74.91.26.218:82/live/j2.m3u8
+广东体育,http://14.112.100.72:4022/udp/239.77.0.112:5146
