@@ -109,11 +109,11 @@ def main():
         for kw in KEYWORDS:
             print(f"\n🚀 Processing Keyword: {kw}")
             
-      try:
-                page.get('http://tonkiang.us/')
+    try:
+         page.get('http://tonkiang.us/')
                 
-                # --- 新增：不管有没有被墙，先拍张照存证 ---
-                page.get_screenshot(path='debug_proof.png', full_page=True)
+              # --- 新增：不管有没有被墙，先拍张照存证 ---
+         page.get_screenshot(path='debug_proof.png', full_page=True)
                 print("📸 Debug screenshot saved as debug_proof.png")
                 # ---------------------------------------
 
