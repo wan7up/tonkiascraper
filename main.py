@@ -1,78 +1,3 @@
-from DrissionPage import ChromiumPage, ChromiumOptions
-from datetime import datetime, timedelta
-import re
-import os
-import time
-import tempfile
-import shutil
-import csv
-
-# --- 配置部分 ---
-KEYWORDS =  [ "广东体育", "无线新闻", "翡翠台", "VIU", "TVB PLUS", "NatGeo_twn", "Now Sports 精選", "discoveryhd_twn", "tlc_twn", "國家地理", "hbohd_twn"]
-DAYS_LIMIT = 30
-DATA_FILE = "data.csv"
-M3U_FILE = "tv.m3u"
-TXT_FILE = "tv.txt"
-
-def handle_cloudflare(page):
-    """(保持原版) 智能处理 Cloudflare"""
-    print("🛡️ Checking Cloudflare status...")
-    for i in range(10):
-        try:
-            title = page.title
-            if "Just a moment" not in title and ("IPTV" in title or "Search" in title or "Tonkiang" in title):
-                print(f"✅ Access Granted! (Title: {title})")
-                return True
-            time.sleep(3)
-        except:
-            time.sleep(3)
-    print("⚠️ Cloudflare check timed out")
-    return False
-
-# --- 读取历史 CSV ---
-def load_history():
-    history = {}
-    if os.path.exists(DATA_FILE):
-        try:
-            with open(DATA_FILE, 'r', encoding='utf-8', newline='') as f:
-                reader = csv.DictReader(f)
-                for row in reader:
-                    history[row['URL']] = {
-                        'Channel': row['Channel'],
-                        'Date': row['Date'],
-                        'Keyword': row['Keyword']
-                    }
-            print(f"📖 Loaded {len(history)} items from history.")
-        except: pass
-    return history
-
-# --- 保存所有文件 ---
-def save_files(data_dict):
-    try:
-        # 1. 保存 CSV
-        with open(DATA_FILE, 'w', encoding='utf-8', newline='') as f:
-            fieldnames = ['Keyword', 'Channel', 'Date', 'URL']
-            writer = csv.DictWriter(f, fieldnames=fieldnames)
-            writer.writeheader()
-            sorted_items = sorted(data_dict.items(), key=lambda x: x[1]['Keyword'])
-            for url, info in sorted_items:
-                writer.writerow({'Keyword': info['Keyword'], 'Channel': info['Channel'], 'Date': info['Date'], 'URL': url})
-        
-        # 2. 保存 M3U
-        with open(M3U_FILE, 'w', encoding='utf-8') as f:
-            f.write("#EXTM3U\n")
-            for url, info in data_dict.items():
-                f.write(f'#EXTINF:-1 group-title="{info["Keyword"]}",{info["Channel"]}\n{url}\n')
-
-        # 3. 保存 TXT
-        with open(TXT_FILE, 'w', encoding='utf-8') as f:
-            for url, info in data_dict.items():
-                f.write(f'{info["Channel"]},{url}\n')
-
-        print(f"💾 Database updated: {len(data_dict)} items saved.")
-    except Exception as e:
-        print(f"❌ Save failed: {e}")
-
 def main():
     # --- 1. 环境配置 ---
     temp_user_dir = tempfile.mkdtemp()
@@ -90,6 +15,7 @@ def main():
     if chrome_path:
         co.set_paths(browser_path=chrome_path)
 
+    page = None
     try:
         page = ChromiumPage(co)
         print("✅ Browser launched successfully!")
@@ -109,15 +35,19 @@ def main():
         for kw in KEYWORDS:
             print(f"\n🚀 Processing Keyword: {kw}")
             
-    try:
-         page.get('http://tonkiang.us/')
+            try:
+                page.get('http://tonkiang.us/')
                 
-              # --- 新增：不管有没有被墙，先拍张照存证 ---
-         page.get_screenshot(path='debug_proof.png', full_page=True)
-                print("📸 Debug screenshot saved as debug_proof.png")
-                # ---------------------------------------
+                # =========== 📸 调试代码开始 ===========
+                # 强制截图，保存到当前目录，用于排查是否被屏蔽
+                try:
+                    page.get_screenshot(path='debug_proof.png', full_page=True)
+                    print("📸 Debug screenshot saved as debug_proof.png")
+                except Exception as shot_err:
+                    print(f"⚠️ Screenshot failed: {shot_err}")
+                # =========== 📸 调试代码结束 ===========
 
-                handle_cloudflare(page)
+                handle_cloudflare(page) 
                 
                 search_input = page.ele('tag:input@@type!=hidden', timeout=5)
                 if search_input:
@@ -140,7 +70,7 @@ def main():
                     print(f"❌ Input box not found for {kw}, skipping.")
                     continue
 
-                # --- 4. 通用提取逻辑 (不再针对特定词) ---
+                # --- 4. 通用提取逻辑 ---
                 items = page.eles('text:://')
                 new_found = 0
                 
@@ -156,7 +86,6 @@ def main():
                         container = item
                         full_text_block = ""
                         
-                        # 向上找包含换行符的父级，这是最准确的定位方式
                         for _ in range(3):
                             container = container.parent()
                             if not container: break
@@ -167,30 +96,23 @@ def main():
                         if not full_text_block:
                             full_text_block = container.text if container else ""
 
-                        # 3. 按行解析 (通用逻辑)
-                        # 清洗每一行：去掉首尾空格、去掉制表符、去掉看不见的符号
+                        # 3. 按行解析
                         lines = [line.strip() for line in full_text_block.split('\n') if line.strip()]
                         
-                        channel_name = "" # 初始为空，不预设为 kw
+                        channel_name = "" 
                         date_str = ""
                         
                         for line in lines:
-                            # 忽略 URL 行
                             if "://" in line: continue
                             
-                            # 检查是否是日期行
                             mat = re.search(r'(\d{2,4}-\d{1,2}-\d{2,4})', line)
                             if mat:
                                 date_str = mat.group(1)
                                 continue 
                             
-                            # 如果还没找到台名，且这行不是URL也不是日期，那它就是台名
-                            # 这里不再检查 len(line) < 50，防止某些长名字被漏掉
-                            # 也不再检查是否包含关键字，完全信任页面显示
                             if not channel_name:
                                 channel_name = line
                         
-                        # 如果实在没提取到台名，才用关键字兜底 (防止空名)
                         if not channel_name:
                             channel_name = kw
 
@@ -203,19 +125,14 @@ def main():
                                     dt = datetime.strptime(date_str, '%m-%d-%Y')
                                 str_date = dt.strftime('%Y-%m-%d')
 
-                                # 核心：总是用页面上抓到的真实名字 (channel_name) 更新数据库
                                 if url in all_data:
-                                    # 即使 URL 已存在，只要页面上的名字不是默认关键字，就更新它
-                                    # 这样可以修正以前被错误存为 "VIU" 的数据
                                     if channel_name != kw:
                                         all_data[url]['Channel'] = channel_name
                                     
-                                    # 更新日期
                                     old_date = datetime.strptime(all_data[url]['Date'], '%Y-%m-%d')
                                     if dt > old_date:
                                         all_data[url]['Date'] = str_date
                                 else:
-                                    # 新增
                                     all_data[url] = {
                                         'Keyword': kw,
                                         'Channel': channel_name,
@@ -255,10 +172,8 @@ def main():
 
     print(f"   Removed {expired_count} expired items.")
     
+    # 只要有有效数据就保存 (即使没有新增，也要更新 M3U 头部)
     if len(valid_data) > 0:
         save_files(valid_data)
     else:
         print("⚠️ No valid data remaining! Skipping save.")
-
-if __name__ == "__main__":
-    main()
