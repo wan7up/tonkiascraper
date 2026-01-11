@@ -58,9 +58,9 @@ def save_files(data_dict):
             for url, info in sorted_items:
                 writer.writerow({'Keyword': info['Keyword'], 'Channel': info['Channel'], 'Date': info['Date'], 'URL': url})
         
-        # 2. 保存 M3U (增加时间戳，确保 Git 每次都能识别到变化)
+        # 2. 保存 M3U
         with open(M3U_FILE, 'w', encoding='utf-8') as f:
-            f.write(f"#EXTM3U\n# Updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+            f.write("#EXTM3U\n")
             for url, info in data_dict.items():
                 f.write(f'#EXTINF:-1 group-title="{info["Keyword"]}",{info["Channel"]}\n{url}\n')
 
@@ -86,12 +86,10 @@ def main():
     co.set_argument('--remote-allow-origins=*')
     co.set_user_agent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36')
 
-    # 读取 GitHub Actions 环境变量里的 Chrome 路径
     chrome_path = os.getenv('CHROME_PATH')
     if chrome_path:
         co.set_paths(browser_path=chrome_path)
 
-    page = None
     try:
         page = ChromiumPage(co)
         print("✅ Browser launched successfully!")
@@ -113,15 +111,6 @@ def main():
             
             try:
                 page.get('http://tonkiang.us/')
-                
-                # =========== 📸 调试代码开始 (强制截图) ===========
-                try:
-                    page.get_screenshot(path='debug_proof.png', full_page=True)
-                    print("📸 Debug screenshot saved as debug_proof.png")
-                except Exception as shot_err:
-                    print(f"⚠️ Screenshot failed: {shot_err}")
-                # =========== 📸 调试代码结束 ===========
-
                 handle_cloudflare(page) 
                 
                 search_input = page.ele('tag:input@@type!=hidden', timeout=5)
@@ -145,7 +134,7 @@ def main():
                     print(f"❌ Input box not found for {kw}, skipping.")
                     continue
 
-                # --- 4. 通用提取逻辑 ---
+                # --- 4. 通用提取逻辑 (不再针对特定词) ---
                 items = page.eles('text:://')
                 new_found = 0
                 
@@ -161,6 +150,7 @@ def main():
                         container = item
                         full_text_block = ""
                         
+                        # 向上找包含换行符的父级，这是最准确的定位方式
                         for _ in range(3):
                             container = container.parent()
                             if not container: break
@@ -171,23 +161,30 @@ def main():
                         if not full_text_block:
                             full_text_block = container.text if container else ""
 
-                        # 3. 按行解析
+                        # 3. 按行解析 (通用逻辑)
+                        # 清洗每一行：去掉首尾空格、去掉制表符、去掉看不见的符号
                         lines = [line.strip() for line in full_text_block.split('\n') if line.strip()]
                         
-                        channel_name = "" 
+                        channel_name = "" # 初始为空，不预设为 kw
                         date_str = ""
                         
                         for line in lines:
+                            # 忽略 URL 行
                             if "://" in line: continue
                             
+                            # 检查是否是日期行
                             mat = re.search(r'(\d{2,4}-\d{1,2}-\d{2,4})', line)
                             if mat:
                                 date_str = mat.group(1)
                                 continue 
                             
+                            # 如果还没找到台名，且这行不是URL也不是日期，那它就是台名
+                            # 这里不再检查 len(line) < 50，防止某些长名字被漏掉
+                            # 也不再检查是否包含关键字，完全信任页面显示
                             if not channel_name:
                                 channel_name = line
                         
+                        # 如果实在没提取到台名，才用关键字兜底 (防止空名)
                         if not channel_name:
                             channel_name = kw
 
@@ -200,14 +197,19 @@ def main():
                                     dt = datetime.strptime(date_str, '%m-%d-%Y')
                                 str_date = dt.strftime('%Y-%m-%d')
 
+                                # 核心：总是用页面上抓到的真实名字 (channel_name) 更新数据库
                                 if url in all_data:
+                                    # 即使 URL 已存在，只要页面上的名字不是默认关键字，就更新它
+                                    # 这样可以修正以前被错误存为 "VIU" 的数据
                                     if channel_name != kw:
                                         all_data[url]['Channel'] = channel_name
                                     
+                                    # 更新日期
                                     old_date = datetime.strptime(all_data[url]['Date'], '%Y-%m-%d')
                                     if dt > old_date:
                                         all_data[url]['Date'] = str_date
                                 else:
+                                    # 新增
                                     all_data[url] = {
                                         'Keyword': kw,
                                         'Channel': channel_name,
@@ -247,7 +249,6 @@ def main():
 
     print(f"   Removed {expired_count} expired items.")
     
-    # 只要有数据就保存 (以便更新 M3U 头部的时间戳)
     if len(valid_data) > 0:
         save_files(valid_data)
     else:
