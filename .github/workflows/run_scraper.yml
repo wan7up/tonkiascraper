@@ -49,3 +49,12 @@ jobs:
           
           git commit -m "Auto-update IPTV playlist" || echo "⚠️ No changes to commit"
           git push || echo "⚠️ Nothing to push"
+        
+      # --- 新增下面的部分 ---
+      - name: Upload Debug Screenshot
+        if: always()   # 即使脚本报错也会执行这一步
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-evidence
+          path: debug_proof.png
+          retention-days: 1
