@@ -6,7 +6,7 @@ def generate_tvo():
     INPUT_CSV = "data.csv"
     OUTPUT_M3U = "tvo.m3u"
     EPG_URL = "https://raw.githubusercontent.com/fanmingming/live/main/e.xml"
-    MAX_COUNT_PER_CHANNEL = 10
+    MAX_COUNT_PER_CHANNEL = 6
 
     # 格式： "CSV搜索关键词": {"显示名称": "xxx", "logo": "xxx"}
     # 注意：字典的顺序决定了最终 M3U 的频道顺序
