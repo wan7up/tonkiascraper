@@ -177,3 +177,5 @@ def main():
         save_files(valid_data)
     else:
         print("⚠️ No valid data remaining! Skipping save.")
+if __name__ == "__main__":
+    main()
