@@ -1,3 +1,78 @@
+from DrissionPage import ChromiumPage, ChromiumOptions
+from datetime import datetime, timedelta
+import re
+import os
+import time
+import tempfile
+import shutil
+import csv
+
+# --- 配置部分 ---
+KEYWORDS =  [ "广东体育", "无线新闻", "翡翠台", "VIU", "TVB PLUS", "NatGeo_twn", "Now Sports 精選", "discoveryhd_twn", "tlc_twn", "國家地理", "hbohd_twn"]
+DAYS_LIMIT = 30
+DATA_FILE = "data.csv"
+M3U_FILE = "tv.m3u"
+TXT_FILE = "tv.txt"
+
+def handle_cloudflare(page):
+    """(保持原版) 智能处理 Cloudflare"""
+    print("🛡️ Checking Cloudflare status...")
+    for i in range(10):
+        try:
+            title = page.title
+            if "Just a moment" not in title and ("IPTV" in title or "Search" in title or "Tonkiang" in title):
+                print(f"✅ Access Granted! (Title: {title})")
+                return True
+            time.sleep(3)
+        except:
+            time.sleep(3)
+    print("⚠️ Cloudflare check timed out")
+    return False
+
+# --- 读取历史 CSV ---
+def load_history():
+    history = {}
+    if os.path.exists(DATA_FILE):
+        try:
+            with open(DATA_FILE, 'r', encoding='utf-8', newline='') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    history[row['URL']] = {
+                        'Channel': row['Channel'],
+                        'Date': row['Date'],
+                        'Keyword': row['Keyword']
+                    }
+            print(f"📖 Loaded {len(history)} items from history.")
+        except: pass
+    return history
+
+# --- 保存所有文件 ---
+def save_files(data_dict):
+    try:
+        # 1. 保存 CSV
+        with open(DATA_FILE, 'w', encoding='utf-8', newline='') as f:
+            fieldnames = ['Keyword', 'Channel', 'Date', 'URL']
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            sorted_items = sorted(data_dict.items(), key=lambda x: x[1]['Keyword'])
+            for url, info in sorted_items:
+                writer.writerow({'Keyword': info['Keyword'], 'Channel': info['Channel'], 'Date': info['Date'], 'URL': url})
+        
+        # 2. 保存 M3U (增加时间戳，确保 Git 每次都能识别到变化)
+        with open(M3U_FILE, 'w', encoding='utf-8') as f:
+            f.write(f"#EXTM3U\n# Updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+            for url, info in data_dict.items():
+                f.write(f'#EXTINF:-1 group-title="{info["Keyword"]}",{info["Channel"]}\n{url}\n')
+
+        # 3. 保存 TXT
+        with open(TXT_FILE, 'w', encoding='utf-8') as f:
+            for url, info in data_dict.items():
+                f.write(f'{info["Channel"]},{url}\n')
+
+        print(f"💾 Database updated: {len(data_dict)} items saved.")
+    except Exception as e:
+        print(f"❌ Save failed: {e}")
+
 def main():
     # --- 1. 环境配置 ---
     temp_user_dir = tempfile.mkdtemp()
@@ -11,6 +86,7 @@ def main():
     co.set_argument('--remote-allow-origins=*')
     co.set_user_agent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36')
 
+    # 读取 GitHub Actions 环境变量里的 Chrome 路径
     chrome_path = os.getenv('CHROME_PATH')
     if chrome_path:
         co.set_paths(browser_path=chrome_path)
@@ -38,8 +114,7 @@ def main():
             try:
                 page.get('http://tonkiang.us/')
                 
-                # =========== 📸 调试代码开始 ===========
-                # 强制截图，保存到当前目录，用于排查是否被屏蔽
+                # =========== 📸 调试代码开始 (强制截图) ===========
                 try:
                     page.get_screenshot(path='debug_proof.png', full_page=True)
                     print("📸 Debug screenshot saved as debug_proof.png")
@@ -172,10 +247,11 @@ def main():
 
     print(f"   Removed {expired_count} expired items.")
     
-    # 只要有有效数据就保存 (即使没有新增，也要更新 M3U 头部)
+    # 只要有数据就保存 (以便更新 M3U 头部的时间戳)
     if len(valid_data) > 0:
         save_files(valid_data)
     else:
         print("⚠️ No valid data remaining! Skipping save.")
+
 if __name__ == "__main__":
     main()
