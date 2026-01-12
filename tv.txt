@@ -1,4 +1,18 @@
 Now Sports 精選,http://hls.168.us.kg/u/630/master.m3u8
+TVB Plus,http://grandprix2023.asuscomm.com:8892/bysid/82.m3u8
+TVB Plus,http://php.jdshipin.com/TVOD/iptv.php?id=j2
+TVB PLUS,http://smart.cityq.xyz:8278/j2_twn/playlist.m3u8?tid=MFCF3274854132748541&ct=19254&tsum=699466c18aac56202ad1d2843fd21032
+TVB PLUS,http://smart.cityq.xyz:8278/j2_twn/playlist.m3u8?tid=MD4D2403778024037780&ct=20241&tsum=c1359a362c3f4447b548ca3eeaced81f
+TVB Plus,http://hls.168.us.kg/u/82/master.m3u8
+TVB Plus,http://php.jdshipin.com/TVOD/iptv.php?id=tvbp
+TVB Plus,http://php.jdshipin.com:8880/TVOD/iptv.php?id=tvbp
+TVB Plus,http://php.jdshipin.com:8880/TVOD/iptv.php?id=j2
+TVB PLUS,http://smt.veryfast.filegear-sg.me/smt3.2.1.php?id=j2_twn
+TVB PLUS,http://cdn6.veryfast.filegear-sg.me/live/tvbp/stream.m3u8
+TVB Plus,http://api.kkitv.itv888.vip:8080/streams/48uxa7dlbga/index.m3u8
+TVB plus备,https://vdm6-hw.nbgdsygs.com/live/h6-2.flv
+TVB Plus,https://live.catvod.com/iptv.php?id=tvbplus2
+TVB Plus,http://74.91.26.218:82/live/j2.m3u8
 VIUTV,http://php.jdshipin.com/TVOD/iptv.php?id=viutv2
 Viu6,http://api.kkitv.itv888.vip:8080/streams/bvdslcl5cts/index.m3u8
 VIUTV,http://smart.cityq.xyz:8278/viu1_twn/playlist.m3u8?tid=MF1F7819763178197631&ct=20241&tsum=73bf97ade6499317dabf81cdb36740a2
@@ -22,9 +36,20 @@ ViuTV Six,https://pull-f5-spe.ixigua.com/yeslivetv.com/154548299-581799927/index
 ViuTVsix (720p),https://live.astradamy.com/viutv6/index.m3u8
 ViuTV (1080p) [Geo-blocked],https://cdn.hklive.tv/xxxx/99/index.m3u8
 ViuTVsix (1080p) [Geo-blocked],https://cdn.hklive.tv/xxxx/96/index.m3u8
+viutv,https://live.catvod.com/live.php?id=viu1_twn
+viutv6,https://live.catvod.com/live.php?id=viusix_twn
+VIU TV,https://live.catvod.com/iptv.php?id=viutv02
+ViuTV,http://grandprix2023.asuscomm.com:8889/bysid/99.m3u8
+ViuTVsix,http://grandprix2023.asuscomm.com:8889/bysid/96.m3u8
+VIUTV-粤,http://rihou.cc:555/tv/[SX]VIUTV
+VIUTV-粤,http://rihou.cc:555/tv/[Mt]VIUTV
+VIUTV-粤,http://rihou.cc:555/tv/[PL]VIUTV
 Discovery HD,http://smart.cityq.xyz:8278/discoveryhd_twn/playlist.m3u8?tid=mc609f36f8a214&ct=11617719300&tsum=be73404e18c83a0b9e6a60b7d6b22887
 HBO,http://smart.cityq.xyz:8278/hbohd_twn/playlist.m3u8?tid=mc609f36f8a214&ct=11617719300&tsum=ca82da37e8eeb07511bfc6b5f9e9795f
+HBO_HD,https://smart.pendy.dpdns.org/Smart.php?id=hbohd_twn
+HBO,https://live.catvod.com/live.php?id=hbohd_twn
 TLC旅遊生活,http://smart.cityq.xyz:8278/tlc_twn/playlist.m3u8?tid=mc609f36f8a214&ct=11617719300&tsum=8f13ae0ea1143384471db3685eecde63
+TLC旅遊生活,https://live.catvod.com/live.php?id=tlc_twn
 國家地理,http://smart.cityq.xyz:8278/natgeohd_twn/playlist.m3u8?tid=mc609f36f8a214&ct=11617719300&tsum=7a2359a2bf7a324b6b249ddeeff5f656
 广东体育,http://14.145.179.29:8888/udp/239.77.0.168:5146
 广东体育,http://php.jdshipin.com/TVOD/iptv.php?id=gdty
@@ -35,6 +60,25 @@ TLC旅遊生活,http://smart.cityq.xyz:8278/tlc_twn/playlist.m3u8?tid=mc609f36f8
 广东体育,http://218.15.183.23:9901/tsfile/live/23012_1.m3u8
 广东体育,http://183.237.95.108:9901/tsfile/live/1033_1.m3u8?key=txiptv&playlive=0&authid=0
 广东体育,http://120.198.101.106:9901/tsfile/live/1012_1.m3u8?key=txiptv
+广东体育,http://183.0.203.169:9999/udp/239.77.0.112:5146
+广东体育,http://113.102.83.21:4022/udp/239.77.1.97:5146
+广东体育,http://113.109.250.64:9999/udp/239.77.1.97:5146
+广东体育,http://ymz.stkeyu.top:8303/udp/239.77.0.112:5146
+广东体育,http://121.33.112.47:54321/udp/239.77.0.112:5146
+广东体育,http://183.30.202.12:8000/udp/239.77.0.6:5146
+广东体育,http://14.21.173.14:8888/udp/239.77.1.97:5146
+广东体育,http://113.101.244.14:10000/udp/239.77.0.6:5146
+广东体育,https://live.catvod.com/iptv.php?id=gdty01
+广东体育,http://14.19.203.66:4022/udp/239.77.0.168:5146
+广东体育HD,http://114.132.184.239:6080/channel/103a5af0/index.m3u8
+广东体育,http://113.101.244.201:10000/udp/239.77.0.6:5146
+广东体育,http://183.33.57.149:8686/udp/239.77.0.168:5146
+广东体育,http://rihou.cc:555/tv/[Cx]
+广东体育,http://116.22.147.183:54321/udp/239.77.0.112:5146
+广东体育,http://14.21.172.209:8888/udp/239.77.0.112:5146
+广东体育,http://74.91.26.218:82/live/gdty.m3u8
+广东体育,http://14.21.172.209:8888/udp/239.77.1.97:5146
+广东体育,http://14.112.100.72:4022/udp/239.77.0.112:5146
 无线新闻,https://cdn9.163189.xyz/smt3.1.1.php?id=inews_twn
 ﻿无线新闻台,http://php.jdshipin.com/TVOD/iptv.php?id=tvbxw
 无线新闻,https://cdn6.101.qzz.io/163189/wxxw
@@ -49,6 +93,19 @@ TVB无线新闻,http://php.jdshipin.com/TVOD/iptv.php?id=wxxwt
 无线新闻台,http://smt.veryfast.filegear-sg.me/smt3.2.1.php?id=inews_twn
 无线新闻台,http://cdn6.veryfast.filegear-sg.me/live/wxxw/stream.m3u8
 无线新闻台,http://v2h.veryfast.filegear-sg.me/live/wxxw/stream.m3u8
+tvb無線新聞,https://epg.pw/stream/19d1cd44fca23238190d5ada7b08552382bf391f77d6b4348f3e3ae56afe7c9f.m3u8
+TVB無線新聞,https://epg.pw/stream/7a92efcc03038ae4c87f282eaabe2f8a51b1e4b93e5f9f67cfca15381583a8ba.ctv
+无线新闻台,https://stream1.freetv.fun/184b2e86d862ac0f26c86bc59f1ea7882af76c7ae6691e448c20dcd7b9374870.m3u8
+无线新闻,https://live.catvod.com/live.php?id=inews_twn
+无线新闻,https://live.catvod.com/iptv.php?id=tvbxw01
+无线新闻台,https://live.catvod.com/iptv.php?id=wxxw01
+无线新闻,http://rihou.cc:555/tv/[SX]
+无线新闻,http://rihou.cc:555/tv/[PL]
+无线新闻,http://rihou.cc:555/tv/[Pd]
+无线新闻,http://rihou.cc:555/tv/[Bx]
+无线新闻,http://rihou.cc:555/tv/[Mt]
+无线新闻,https://stream1.freetv.fun/72987f3fa96af219332cc264f14fbe126748e5dae4c53c74f45f3856e926756e.m3u8
+无线新闻台,http://74.91.26.218:82/live/inews.m3u8
 翡翠台,http://php.jdshipin.com:8880/TVOD/iptv.php?id=fct3
 翡翠台,http://smart.cityq.xyz:8278/jade_twn/playlist.m3u8?tid=MAFA8142395181423951&ct=20075&tsum=cd432288b12be8775123af37f179d76d
 翡翠台,http://hls.168.us.kg/u/81/master.m3u8
@@ -75,3 +132,20 @@ tvb翡翠台,https://epg.pw/stream/fe02817d95c6d58f41e1ea8208b5a8c9462bf525b1538
 翡翠台华丽,http://smart.cityq.xyz:8278/Wlt/playlist.m3u8?tid=MFDF9126586991265869&ct=20241&tsum=951b446ed2eee9f5ae67fbc4a0fb8a3d
 翡翠台华丽,http://smart.cityq.xyz:8278/Tvbjade/playlist.m3u8?tid=MF7F5665582956655829&ct=19396&tsum=798dd508a520591696de2b87ed95b3c2
 华丽翡翠台,http://php.jdshipin.com/TVOD/iptv.php?id=huali
+华丽翡翠台,http://cdn9.163189.xyz/smt1.1.php?id=Tvbjade
+华丽翡翠台,http://php.jdshipin.com:8880/smt.php?id=Wlt
+华丽翡翠台,http://v2h.veryfast.filegear-sg.me/live/hlfct/stream.m3u8
+翡翠台北美版(TVB J1),http://php.jdshipin.com/TVOD/iptv.php?id=j1
+TVB Jade (翡翠台) (720p),https://cdn.hklive.tv/xxxx/81/index.m3u8
+TVB Jade (翡翠台) (720p),https://cloudfront41.lexanetwork.com:1344/relay01/livestream002.sdp/playlist.m3u8
+翡翠台,https://live.catvod.com/live.php?id=Jade_xue
+翡翠台,https://live.catvod.com/iptv.php?id=fct004
+翡翠台,https://live.catvod.com/iptv.php?id=fct002
+翡翠台,https://live.catvod.com/live.php?id=jade_twn
+翡翠台,https://live.catvod.com/iptv.php?id=fct003
+﻿翡翠台,http://114.132.184.239:6080/channel/nf8e56e9/index.m3u8
+华丽翡翠台,http://smt.veryfast.filegear-sg.me/smt3.2.1.php?id=Tvbjade
+华丽翡翠台,https://live.catvod.com/iptv.php?id=huali02
+翡翠台（字幕）,https://live.catvod.com/iptv.php?id=fctsub
+翡翠台字幕,http://o12.veryfast.filegear-sg.me/hls/fct/playlist.m3u8
+翡翠台,http://74.91.26.218:82/live/jade.m3u8
