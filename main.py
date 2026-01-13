@@ -15,18 +15,44 @@ M3U_FILE = "tv.m3u"
 TXT_FILE = "tv.txt"
 
 def handle_cloudflare(page):
-    """(保持原版) 智能处理 Cloudflare"""
-    print("🛡️ Checking Cloudflare status...")
-    for i in range(10):
+    """(修改版) 尝试处理 Cloudflare 和 reCAPTCHA 验证"""
+    print("🛡️ Checking Cloudflare/reCAPTCHA status...")
+    
+    # 增加等待轮次，给验证留出时间
+    for i in range(20): 
+        time.sleep(2)
+        
         try:
             title = page.title
-            if "Just a moment" not in title and ("IPTV" in title or "Search" in title or "Tonkiang" in title):
+            # 1. 成功判断：标题正常，且页面里没有验证码的特征文字
+            if "Just a moment" not in title and "Not a Robot" not in page.html and ("IPTV" in title or "Search" in title or "Tonkiang" in title):
                 print(f"✅ Access Granted! (Title: {title})")
                 return True
-            time.sleep(3)
-        except:
-            time.sleep(3)
-    print("⚠️ Cloudflare check timed out")
+            
+            # 2. 尝试定位并点击 reCAPTCHA 复选框
+            # Google 的验证码通常在一个 iframe 里，src 包含 google.com/recaptcha
+            recaptcha_iframe = page.get_frame('@src^https://www.google.com/recaptcha/api2/anchor')
+            if recaptcha_iframe:
+                # 查找那个小方框
+                checkbox = recaptcha_iframe.ele('#recaptcha-anchor')
+                # 如果没被勾选，就点一下
+                if checkbox and 'recaptcha-checkbox-checked' not in checkbox.attr('class'):
+                    print("🤖 Found reCAPTCHA, clicking checkbox...")
+                    checkbox.click()
+                    time.sleep(3) # 等待变绿或者弹出图片
+            
+            # 3. 尝试点击截图里那个 "OK" 按钮
+            # 截图显示有一个巨大的 "OK" 按钮，可能需要点完验证码再点它，或者直接点它
+            ok_btn = page.ele('tag:button@@text()=OK') or page.ele('tag:input@@value=OK') or page.ele('text:^OK$')
+            if ok_btn:
+                print("👆 Found OK button, clicking...")
+                ok_btn.click()
+                
+        except Exception as e:
+            # 只是尝试，报错了不要中断，继续下一轮循环检测
+            pass
+
+    print("⚠️ Cloudflare/reCAPTCHA check timed out")
     return False
 
 # --- 读取历史 CSV ---
