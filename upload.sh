@@ -8,23 +8,30 @@ TARGET_DIR="/root/tv_scraper"
 if [ -f "$SOURCE" ]; then
     cp -f "$SOURCE" "$TARGET_DIR/"
 else
-    echo "⚠️  在 /mnt/media 没找到 data.csv，停止运行。"
+    echo "⚠️  /mnt/media 没找到 data.csv，停止运行。"
     exit 1
 fi
 
-# --- 2. Git 上传 ---
+# --- 2. Git 智能同步 ---
 cd "$TARGET_DIR"
 
-# 防报错配置
+# 设置安全目录
 git config --global --add safe.directory "$TARGET_DIR"
 
-# 【关键修改】先 Add/Commit，保证工作区干净，然后再 Pull
-git add data.csv
-git commit -m "Auto update: $(date '+%Y-%m-%d %H:%M:%S')"
+# 【第一步：先登记本地所有变化】
+# 不管是 data.csv 变了，还是脚本变了，全部先存入本地暂存区
+# 这样就不会报 "unstaged changes" 错误了
+git add .
 
-# 【关键修改】Pull 在 Commit 之后
-# -X theirs 表示：如果有冲突，强制使用“我的(N1)”版本，覆盖 Github 的
-git pull origin main --rebase -X theirs
+# 【第二步：提交本地版本】
+# 即使没变化，这步报错也无所谓，继续往下走
+git commit -m "Auto update: $(date '+%Y-%m-%d %H:%M:%S')" > /dev/null 2>&1
 
-# 最后推送
+# 【第三步：拉取 GitHub 的变化】
+# --rebase: 把你的新数据“嫁接”到 GitHub 最新版本之后
+# -X theirs: 如果万一 data.csv 都有修改，以 Github 的为准？不，这里我们通常不用加参数，
+# 让 Git 自动合并。如果你重命名了文件，Git 会自动识别。
+git pull origin main --rebase
+
+# 【第四步：推送】
 git push origin main
