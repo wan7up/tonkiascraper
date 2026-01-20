@@ -18,9 +18,13 @@ cd "$TARGET_DIR"
 # 防报错配置
 git config --global --add safe.directory "$TARGET_DIR"
 
-# 标准三连：拉取(主分支) -> 添加 -> 提交 -> 推送(主分支)
-# 注意：这里加了 -X ours，意思是如果有冲突，以我(本地N1)的文件为准
-git pull origin main --rebase -X ours
+# 【关键修改】先 Add/Commit，保证工作区干净，然后再 Pull
 git add data.csv
 git commit -m "Auto update: $(date '+%Y-%m-%d %H:%M:%S')"
+
+# 【关键修改】Pull 在 Commit 之后
+# -X theirs 表示：如果有冲突，强制使用“我的(N1)”版本，覆盖 Github 的
+git pull origin main --rebase -X theirs
+
+# 最后推送
 git push origin main
