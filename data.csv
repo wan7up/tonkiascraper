@@ -1,6 +1,4 @@
 Keyword,Channel,Date,URL
-翡翠台,翡翠台,2026-10-19,http://116.77.33.98:44330/tsfile/live/1008_1.m3u8?key=txiptv
-翡翠台,翡翠台,2026-10-19,http://116.77.33.98:44330/tsfile/live/1008_1.m3u8?key=txiptv&playlive=0&authid=0
 翡翠台,翡翠台,2026-10-19,http://120.198.95.220:9901/tsfile/live/1004_1.m3u8?key=txiptv
 翡翠台,翡翠台,2026-09-23,http://173.208.234.146/live/jade.m3u8?zbj
 翡翠台,翡翠台,2026-10-18,http://183.234.143.5:85/tsfile/live/0001_1.m3u8?key=txiptv
@@ -9,9 +7,7 @@ Keyword,Channel,Date,URL
 翡翠台,翡翠台,2026-10-18,https://10.fast.hidns.vip/163189/fct/
 翡翠台,翡翠台,2026-10-19,https://cdn3.indevs.in/stream/tvb/fct/
 翡翠台,翡翠台,2026-10-19,https://pull-f5-spe.ixigua.com/yeslivetv.com/291403ea-fabd-4dc1-bdfa-f14ebe74411e/index.m3u8
-翡翠台,TVB Jade (翡翠台) (720p),2026-10-19,https://cdn.hklive.tv/xxxx/81/index.m3u8
 翡翠台,TVB Jade (翡翠台) (720p),2026-10-16,https://cloudfront41.lexanetwork.com:1344/relay01/livestream002.sdp/playlist.m3u8
-广东体育,广东体育,2026-10-17,http://113.110.200.133:55555/udp/239.77.0.112:5146
 广东体育,广东体育,2026-09-24,http://120.234.187.66:10086/udp/239.20.0.103:2004
 广东体育,广东体育,2026-10-19,http://120.237.39.10:9901/tsfile/live/1013_1.m3u8?key=txiptv
 广东体育,广东体育,2026-10-02,http://173.208.234.146/live/gdty.m3u8?zbj
@@ -32,25 +28,17 @@ Keyword,Channel,Date,URL
 无线新闻,无线新闻台,2026-10-19,https://cdn6.cc.cd/163189/wxxwt
 无线新闻,无线新闻台,2026-10-19,https://live.catvod.com/iptv.php?id=wxxw01
 无线新闻,TVB无线新闻,2026-10-15,http://php.jdshipin.com/TVOD/iptv.php?id=wxxwt
-CCTV5,CCTV-5+体育赛事 (1080p),2026-10-19,https://node1.olelive.com:6443/live/CCTV5PHD/hls.m3u8
 CCTV5,CCTV-5体育 (1080p),2026-10-19,http://220.178.228.153:1935/live/cctv5/playlist.m3u8
-CCTV5,CCTV-5体育 (1080p),2026-10-19,https://node1.olelive.com:6443/live/CCTV5HD/hls.m3u8
 CCTV5,cctv5,2026-10-05,http://162.128.169.70/txycdn.video.qq.com/1369718503.m3u8
-CCTV5,CCTV5,2026-10-12,http://111.56.120.88/000000000000/5000000004000008885/.m3u8
-CCTV5,CCTV5,2026-09-30,http://115.224.40.250:5003/live1006.m3u8?token=7375646f7c070268c2ab4b0311db8ba16b0b3d03&z=1f4e
-CCTV5,CCTV5,2026-10-19,http://171.120.76.35:8005/rtp/226.0.2.209:9584
 CCTV5,CCTV5,2026-10-11,http://173.208.234.146/live/cctv5.m3u8?zbj
 CCTV5,CCTV5,2026-10-06,http://219.147.245.238:25480/newlive/live/hls/5/live.m3u8
 CCTV5,CCTV5,2026-10-19,http://43.152.31.17:843/hlslive-tx-cdn.ysp.cctv.cn/ysp/2024078401_dlna.m3u8
-CCTV5,CCTV5,2026-10-05,http://43.175.120.172/outlivecloud-cdn.ysp.cctv.cn/ysp/2024078403.m3u8
 CCTV5,CCTV5,2026-10-13,http://49.84.70.128:15140/央视/CCTV5?cors
 CCTV5,CCTV5,2026-09-30,http://58.56.162.102:4466/newlive/live/hls/5/live.m3u8
 CCTV5,CCTV5,2026-10-03,http://74.91.26.218:82/live/cctv5hd.m3u8
-CCTV5,CCTV5 (1080p),2026-10-19,http://bl.dchwtq.asia:10000/rtp/239.69.1.123:10376
 CCTV5,CCTV5体育,2026-10-18,http://112.26.106.165:7788/641886683
 CCTV5,CCTV5体育,2026-10-18,http://121.29.157.139:7788/641886683
 CCTV5+,cctv5+,2026-10-06,http://162.128.169.70/txycdn.video.qq.com/1369718603.m3u8
-CCTV5+,CCTV5+,2026-10-09,http://111.56.120.88/000000000000/5000000011000031127/.m3u8
 CCTV5+,CCTV5+,2026-10-20,http://171.213.154.85:8899/udp/239.93.1.79:5140
 CCTV5+,CCTV5+,2026-10-07,http://173.208.234.146/live/cctv5p.m3u8?zbj
 CCTV5+,CCTV5+,2026-09-29,http://198.204.228.26/live/cctv5p.m3u8?ysp
@@ -58,7 +46,6 @@ CCTV5+,CCTV5+,2026-10-06,http://219.147.245.238:25480/newlive/live/hls/6/live.m3
 CCTV5+,CCTV5+,2026-10-18,http://43.152.31.17:843/hlslive-tx-cdn.ysp.cctv.cn/ysp/2024078001_dlna.m3u8
 CCTV5+,CCTV5+,2026-10-13,http://49.84.70.128:15140/央视/CCTV5+?cors
 CCTV5+,CCTV5+,2026-09-24,http://8.146.205.160:8888/edge-cache04.live3.omd.sc96655.com/live/CCTV-5plusH265_4000.m3u8
-CCTV5+,CCTV5+ (1080p),2026-10-19,http://bl.dchwtq.asia:10000/rtp/239.254.96.234:9484
 TVB PLUS,TVB Plus,2026-10-04,http://74.91.26.218:82/live/j2.m3u8?zbj
 TVB PLUS,TVB Plus,2026-10-17,https://10.fast.hidns.vip/163189/tvbp/
 TVB PLUS,TVB Plus,2026-10-19,https://cdn3.indevs.in/stream/tvb/tvbp/
@@ -70,4 +57,3 @@ VIU,ViuTV,2026-10-16,https://pull-f5-spe.ixigua.com/yeslivetv.com/711923214-5817
 VIU,VIUTV,2026-10-04,http://php.jdshipin.com/TVOD/iptv.php?id=viutv
 VIU,VIUTV,2026-10-18,http://php.jdshipin.com/TVOD/iptv.php?id=viutv2
 VIU,VIUTV,2026-10-07,https://cdn.123.rr.kg/163189/viu
-VIU,ViuTV (1080p) [Geo-blocked],2026-10-16,https://cdn.hklive.tv/xxxx/99/index.m3u8
