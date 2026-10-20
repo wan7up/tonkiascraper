@@ -31,6 +31,14 @@ def generate_tvo():
         "广东体育": {
             "display_name": "广东体育",
             "logo": "https://raw.githubusercontent.com/fanmingming/live/main/tv/广东体育.png"
+        },
+        "CCTV5": {
+            "display_name": "CCTV5",
+            "logo": "https://logo.catvod.com/CCTV5.png"
+        },
+        "CCTV5+": {
+            "display_name": "CCTV5+",
+            "logo": "https://logo.catvod.com/CCTV5+.png"
         }
     }
     # -----------------------------------------------
@@ -81,7 +89,7 @@ def generate_tvo():
             if search_key.lower() in row['Channel'].lower():
                 matches.append(row)
         
-        # 4.2 特殊过滤 (VIU 剔除 6/SIX)
+        # 4.2 特殊过滤 (VIU 剔除 6/SIX；CCTV5 剔除 CCTV5+，避免子串匹配串台)
         if search_key == "VIU":
             filtered_matches = []
             for item in matches:
@@ -89,6 +97,8 @@ def generate_tvo():
                 if '6' not in c_name and 'SIX' not in c_name:
                     filtered_matches.append(item)
             matches = filtered_matches
+        if search_key == "CCTV5":
+            matches = [item for item in matches if 'CCTV5+' not in item['Channel'].upper()]
 
         if not matches:
             continue
@@ -99,7 +109,7 @@ def generate_tvo():
             reverse=True
         )
 
-        # 4.4 截取前 10 个
+        # 4.4 截取前 MAX_COUNT_PER_CHANNEL 个
         matches = matches[:MAX_COUNT_PER_CHANNEL]
 
         # 4.5 写入 M3U
