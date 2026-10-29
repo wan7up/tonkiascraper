@@ -1,76 +1,78 @@
 Keyword,Channel,Date,URL
-翡翠台,翡翠台,2026-10-22,http://120.198.95.220:9901/tsfile/live/1004_1.m3u8?key=txiptv
-翡翠台,翡翠台,2026-09-23,http://173.208.234.146/live/jade.m3u8?zbj
-翡翠台,翡翠台,2026-10-21,http://183.234.143.5:85/tsfile/live/0001_1.m3u8?key=txiptv
-翡翠台,翡翠台,2026-10-20,http://beishan008.asuscomm.com:8889/bysid/1.m3u8
+翡翠台,翡翠台,2026-10-29,http://120.198.95.220:9901/tsfile/live/1004_1.m3u8?key=txiptv
+翡翠台,翡翠台,2026-10-25,http://120.237.39.10:9901/tsfile/live/1004_1.m3u8?key=txiptv
+翡翠台,翡翠台,2026-10-29,http://120.238.84.45:9901/tsfile/live/1103_1.m3u8?key=txiptv
+翡翠台,翡翠台,2026-10-25,http://183.234.143.5:85/tsfile/live/0001_1.m3u8?key=txiptv
+翡翠台,翡翠台,2026-10-29,http://beishan008.asuscomm.com:8889/bysid/1.m3u8
 翡翠台,翡翠台,2026-10-04,http://php.jdshipin.com/TVOD/iptv.php?id=huali2
-翡翠台,翡翠台,2026-10-21,https://10.fast.hidns.vip/163189/fct/
-翡翠台,翡翠台,2026-10-22,https://cdn3.indevs.in/stream/tvb/fct/
-翡翠台,翡翠台,2026-10-22,https://pull-f5-spe.ixigua.com/yeslivetv.com/291403ea-fabd-4dc1-bdfa-f14ebe74411e/index.m3u8
-翡翠台,TVB Jade (翡翠台) (720p),2026-10-16,https://cloudfront41.lexanetwork.com:1344/relay01/livestream002.sdp/playlist.m3u8
+翡翠台,翡翠台,2026-10-24,https://10.fast.hidns.vip/163189/fct/
+翡翠台,翡翠台,2026-10-29,https://cdn3.indevs.in/stream/tvb/fct/
+翡翠台,翡翠台,2026-10-29,https://pull-f5-spe.ixigua.com/yeslivetv.com/291403ea-fabd-4dc1-bdfa-f14ebe74411e/index.m3u8
+翡翠台,TVB Jade (翡翠台) (720p),2026-10-24,https://cloudfront41.lexanetwork.com:1344/relay01/livestream002.sdp/playlist.m3u8
 广东体育,广东体育,2026-10-20,http://116.77.33.98:44330/tsfile/live/1004_1.m3u8?key=txiptv&playlive=0&authid=0
-广东体育,广东体育,2026-09-24,http://120.234.187.66:10086/udp/239.20.0.103:2004
-广东体育,广东体育,2026-10-21,http://120.237.39.10:9901/tsfile/live/1013_1.m3u8?key=txiptv
-广东体育,广东体育,2026-10-15,http://14.127.213.91:4022/udp/239.77.0.6:5146
+广东体育,广东体育,2026-10-24,http://120.237.39.10:9901/tsfile/live/1013_1.m3u8?key=txiptv
+广东体育,广东体育,2026-10-29,http://14.127.213.91:4022/udp/239.77.0.6:5146
 广东体育,广东体育,2026-10-02,http://173.208.234.146/live/gdty.m3u8?zbj
-广东体育,广东体育,2026-10-22,http://183.239.248.218:8181/tsfile/live/1041_1.m3u8?key=txiptv
-广东体育,广东体育,2026-10-22,http://198.204.228.26/live/gdty.m3u8?ysp
+广东体育,广东体育,2026-10-24,http://183.16.200.24:55555/udp/239.77.1.97:5146
+广东体育,广东体育,2026-10-23,http://183.239.248.218:8181/tsfile/live/1041_1.m3u8?key=txiptv
+广东体育,广东体育,2026-10-29,http://198.204.228.26/live/gdty.m3u8?ysp
 广东体育,广东体育,2026-10-21,http://218.13.170.98:9901/tsfile/live/0019_1.m3u8
-广东体育,广东体育,2026-10-22,http://38.75.136.137:98/gslb/dsdqpub/gdty.m3u8?auth=testpub
+广东体育,广东体育,2026-10-29,http://38.75.136.137:98/gslb/dsdqpub/gdty.m3u8?auth=testpub
 广东体育,广东体育,2026-10-04,http://74.91.26.218:82/live/gdty.m3u8?zbj
 广东体育,广东体育,2026-10-04,http://php.jdshipin.com/TVOD/iptv.php?id=gdty
 广东体育,广东体育,2026-10-18,https://2.fast.hidns.vip/163189/gdty
 广东体育,广东体育,2026-10-04,https://cdn.qd.je/163189/gdty
-广东体育,广东体育高清,2026-10-22,http://120.238.84.45:9901/tsfile/live/1012_1.m3u8?key=txiptv
-广东体育,广东体育高清,2026-10-22,http://ddns.cyruslee.top:8888/udp/239.77.0.112:5146
-广东体育,广东体育高清,2026-10-22,http://denghao.net:4022/udp/239.77.0.112:5146
+广东体育,广东体育高清,2026-10-29,http://120.238.84.45:9901/tsfile/live/1012_1.m3u8?key=txiptv
+广东体育,广东体育高清,2026-10-29,http://ddns.cyruslee.top:8888/udp/239.77.0.112:5146
+广东体育,广东体育高清,2026-10-29,http://denghao.net:4022/udp/239.77.0.112:5146
 无线新闻,无线新闻,2026-10-01,http://122.152.202.33/s/81a8a44f/index.m3u8?id=21
 无线新闻,无线新闻,2026-10-20,http://173.208.234.146/live/inews.m3u8?zbj
-无线新闻,无线新闻,2026-10-22,http://beishan008.asuscomm.com:8890/bysid/83.m3u8
-无线新闻,无线新闻,2026-10-21,http://mtayeh.ottb.xyz/live/774710333494/659822672281/58592.m3u8
-无线新闻,无线新闻,2026-10-22,http://mtayeh.ottb.xyz/live/774710333494/659822672281/58596.m3u8
-无线新闻,无线新闻,2026-10-22,http://php.jdshipin.com/TVOD/iptv.php?id=tvbxw
-无线新闻,无线新闻,2026-10-21,https://live.catvod.com/iptv.php?id=tvbxw01
-无线新闻,无线新闻台,2026-09-28,http://74.91.26.218:82/live/inews.m3u8
-无线新闻,无线新闻台,2026-10-20,https://cdn.qd.je/163189.php?id=wxxw
-无线新闻,无线新闻台,2026-10-20,https://cdn6.cc.cd/163189/wxxw
-无线新闻,无线新闻台,2026-10-20,https://cdn6.cc.cd/163189/wxxwt
-无线新闻,无线新闻台,2026-10-21,https://live.catvod.com/iptv.php?id=wxxw01
-无线新闻,TVB无线新闻,2026-10-22,http://php.jdshipin.com/TVOD/iptv.php?id=wxxwt
-CCTV5,CCTV-5体育 (1080p),2026-10-22,http://220.178.228.153:1935/live/cctv5/playlist.m3u8
+无线新闻,无线新闻,2026-10-28,http://beishan008.asuscomm.com:8890/bysid/83.m3u8
+无线新闻,无线新闻,2026-10-29,http://mtayeh.ottb.xyz/live/774710333494/659822672281/58592.m3u8
+无线新闻,无线新闻,2026-10-28,http://mtayeh.ottb.xyz/live/774710333494/659822672281/58596.m3u8
+无线新闻,无线新闻,2026-10-28,http://php.jdshipin.com/TVOD/iptv.php?id=tvbxw
+无线新闻,无线新闻,2026-10-27,https://live.catvod.com/iptv.php?id=tvbxw01
+无线新闻,无线新闻台,2026-10-29,https://cdn.qd.je/163189.php?id=wxxw
+无线新闻,无线新闻台,2026-10-29,https://cdn6.cc.cd/163189/wxxw
+无线新闻,无线新闻台,2026-10-28,https://cdn6.cc.cd/163189/wxxwt
+无线新闻,无线新闻台,2026-10-28,https://live.catvod.com/iptv.php?id=wxxw01
+无线新闻,TVB无线新闻,2026-10-29,http://php.jdshipin.com/TVOD/iptv.php?id=wxxwt
+CCTV5,CCTV-5体育 (1080p),2026-10-29,http://220.178.228.153:1935/live/cctv5/playlist.m3u8
 CCTV5,cctv5,2026-10-05,http://162.128.169.70/txycdn.video.qq.com/1369718503.m3u8
 CCTV5,CCTV5,2026-10-21,http://118.79.46.196:9999/rtp/226.0.2.22:8088
 CCTV5,CCTV5,2026-10-11,http://173.208.234.146/live/cctv5.m3u8?zbj
 CCTV5,CCTV5,2026-10-22,http://182.143.112.7:40000/udp/239.93.1.71:5140
 CCTV5,CCTV5,2026-10-22,http://182.143.112.7:40000/udp/239.93.42.37:5140
 CCTV5,CCTV5,2026-10-06,http://219.147.245.238:25480/newlive/live/hls/5/live.m3u8
-CCTV5,CCTV5,2026-10-22,http://43.152.31.17:843/hlslive-tx-cdn.ysp.cctv.cn/ysp/2024078401_dlna.m3u8
-CCTV5,CCTV5,2026-10-20,http://43.152.31.17:843/hlslive-tx-cdn.ysp.cctv.cn/ysp/2024078403_dlna.m3u8
+CCTV5,CCTV5,2026-10-29,http://43.152.31.17:843/hlslive-tx-cdn.ysp.cctv.cn/ysp/2024078401_dlna.m3u8
+CCTV5,CCTV5,2026-10-22,http://43.152.31.17:843/hlslive-tx-cdn.ysp.cctv.cn/ysp/2024078403_dlna.m3u8
 CCTV5,CCTV5,2026-10-13,http://49.84.70.128:15140/央视/CCTV5?cors
 CCTV5,CCTV5,2026-09-30,http://58.56.162.102:4466/newlive/live/hls/5/live.m3u8
 CCTV5,CCTV5,2026-10-03,http://74.91.26.218:82/live/cctv5hd.m3u8
-CCTV5,CCTV5,2026-09-24,http://8.146.205.160:8888/edge-cache04.live3.omd.sc96655.com/live/CCTV-5H265_4000.m3u8
+CCTV5,CCTV5,2026-10-29,http://home.pkucd.cn:4022/udp/239.93.1.36:8004
+CCTV5,CCTV5 HD,2026-10-24,http://liuwenxiaokevin.top:14044/rtp/233.18.204.67:5140
 CCTV5,CCTV5体育,2026-10-20,http://112.26.106.165:7788/641886683
 CCTV5,CCTV5体育,2026-10-18,http://121.29.157.139:7788/641886683
+CCTV5,cctv5hd,2026-10-25,http://38.75.136.137:98/gslb/dsdqbv/cctv5hd.m3u8?auth=test20251009
 CCTV5+,CCTV5,2026-10-21,http://221.234.160.7:999/rtp/239.69.1.12:9712
 CCTV5+,cctv5+,2026-10-06,http://162.128.169.70/txycdn.video.qq.com/1369718603.m3u8
 CCTV5+,CCTV5+,2026-10-22,http://124.77.237.107:4022/
 CCTV5+,CCTV5+,2026-10-20,http://171.213.154.85:8899/udp/239.93.1.79:5140
 CCTV5+,CCTV5+,2026-10-07,http://173.208.234.146/live/cctv5p.m3u8?zbj
-CCTV5+,CCTV5+,2026-09-29,http://198.204.228.26/live/cctv5p.m3u8?ysp
 CCTV5+,CCTV5+,2026-10-06,http://219.147.245.238:25480/newlive/live/hls/6/live.m3u8
-CCTV5+,CCTV5+,2026-10-22,http://43.152.31.17:843/hlslive-tx-cdn.ysp.cctv.cn/ysp/2024078001_dlna.m3u8
+CCTV5+,CCTV5+,2026-10-29,http://43.152.31.17:843/hlslive-tx-cdn.ysp.cctv.cn/ysp/2024078001_dlna.m3u8
 CCTV5+,CCTV5+,2026-10-13,http://49.84.70.128:15140/央视/CCTV5+?cors
-CCTV5+,CCTV5+,2026-09-24,http://8.146.205.160:8888/edge-cache04.live3.omd.sc96655.com/live/CCTV-5plusH265_4000.m3u8
+CCTV5+,CCTV5+,2026-10-29,http://vpn.ydcb.top:40000/udp/239.93.1.79:5140
 TVB PLUS,TVB Plus,2026-10-04,http://74.91.26.218:82/live/j2.m3u8?zbj
-TVB PLUS,TVB Plus,2026-10-21,http://beishan008.asuscomm.com:8890/bysid/82.m3u8
-TVB PLUS,TVB Plus,2026-10-22,https://10.fast.hidns.vip/163189/tvbp/
-TVB PLUS,TVB Plus,2026-10-22,https://cdn3.indevs.in/stream/tvb/tvbp/
-TVB PLUS,TVB Plus(字幕),2026-10-22,https://cdn.qd.je/163189/tvbp
-TVB PLUS,TVB plus备,2026-10-22,https://vdm6-hw.nbgdsygs.com/live/h6-2.flv
-VIU,ViuTV,2026-10-22,https://10.fast.hidns.vip/163189/viu/
-VIU,ViuTV,2026-10-22,https://cdn.qd.je/163189.php?id=viu
-VIU,ViuTV,2026-10-22,https://pull-f5-spe.ixigua.com/yeslivetv.com/711923214-581799927/index.m3u8
+TVB PLUS,TVB Plus,2026-10-22,http://beishan008.asuscomm.com:8890/bysid/82.m3u8
+TVB PLUS,TVB Plus,2026-10-29,https://10.fast.hidns.vip/163189/tvbp/
+TVB PLUS,TVB Plus,2026-10-29,https://cdn3.indevs.in/stream/tvb/tvbp/
+TVB PLUS,TVB Plus(字幕),2026-10-28,https://cdn.qd.je/163189/tvbp
+TVB PLUS,TVB Plus(WebVTT字幕),2026-10-27,https://cdn.qd.je/163189/tvbpvtt
+TVB PLUS,TVB plus备,2026-10-29,https://vdm6-hw.nbgdsygs.com/live/h6-2.flv
+VIU,ViuTV,2026-10-29,https://10.fast.hidns.vip/163189/viu/
+VIU,ViuTV,2026-10-29,https://cdn.qd.je/163189.php?id=viu
+VIU,ViuTV,2026-10-29,https://pull-f5-spe.ixigua.com/yeslivetv.com/711923214-581799927/index.m3u8
 VIU,VIUTV,2026-10-04,http://php.jdshipin.com/TVOD/iptv.php?id=viutv
-VIU,VIUTV,2026-10-18,http://php.jdshipin.com/TVOD/iptv.php?id=viutv2
+VIU,VIUTV,2026-10-23,http://php.jdshipin.com/TVOD/iptv.php?id=viutv2
 VIU,VIUTV,2026-10-07,https://cdn.123.rr.kg/163189/viu
