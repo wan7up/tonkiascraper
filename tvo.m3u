@@ -4,25 +4,25 @@ http://120.198.95.220:9901/tsfile/live/1004_1.m3u8?key=txiptv
 #EXTINF:-1 tvg-name="翡翠台" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/翡翠台.png" group-title="精选频道",翡翠台
 http://120.238.84.45:9901/tsfile/live/1103_1.m3u8?key=txiptv
 #EXTINF:-1 tvg-name="翡翠台" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/翡翠台.png" group-title="精选频道",翡翠台
-https://cdn3.indevs.in/stream/tvb/fct/
+http://183.234.143.5:85/tsfile/live/0001_1.m3u8?key=txiptv
 #EXTINF:-1 tvg-name="翡翠台" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/翡翠台.png" group-title="精选频道",翡翠台
-https://pull-f5-spe.ixigua.com/yeslivetv.com/291403ea-fabd-4dc1-bdfa-f14ebe74411e/index.m3u8
+http://74.91.26.218:82/live/jade.m3u8
+#EXTINF:-1 tvg-name="翡翠台" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/翡翠台.png" group-title="精选频道",翡翠台
+https://live.catvod.com/iptv.php?id=fctsub
 #EXTINF:-1 tvg-name="翡翠台" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/翡翠台.png" group-title="精选频道",翡翠台
 https://cloudfront41.lexanetwork.com:1344/relay01/livestream002.sdp/playlist.m3u8
-#EXTINF:-1 tvg-name="翡翠台" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/翡翠台.png" group-title="精选频道",翡翠台
-http://beishan008.asuscomm.com:8889/bysid/1.m3u8
+#EXTINF:-1 tvg-name="无线新闻" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/无线新闻台.png" group-title="精选频道",无线新闻
+http://php.jdshipin.com/TVOD/iptv.php?id=tvbxw
 #EXTINF:-1 tvg-name="无线新闻" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/无线新闻台.png" group-title="精选频道",无线新闻
 http://php.jdshipin.com/TVOD/iptv.php?id=wxxwt
 #EXTINF:-1 tvg-name="无线新闻" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/无线新闻台.png" group-title="精选频道",无线新闻
-http://php.jdshipin.com/TVOD/iptv.php?id=tvbxw
+http://122.152.202.33/s/81a8a44f/index.m3u8?id=21
+#EXTINF:-1 tvg-name="无线新闻" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/无线新闻台.png" group-title="精选频道",无线新闻
+http://beishan008.asuscomm.com:8890/bysid/83.m3u8
 #EXTINF:-1 tvg-name="无线新闻" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/无线新闻台.png" group-title="精选频道",无线新闻
 http://mtayeh.ottb.xyz/live/774710333494/659822672281/58592.m3u8
 #EXTINF:-1 tvg-name="无线新闻" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/无线新闻台.png" group-title="精选频道",无线新闻
 http://mtayeh.ottb.xyz/live/774710333494/659822672281/58596.m3u8
-#EXTINF:-1 tvg-name="无线新闻" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/无线新闻台.png" group-title="精选频道",无线新闻
-https://live.catvod.com/iptv.php?id=wxxw01
-#EXTINF:-1 tvg-name="无线新闻" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/无线新闻台.png" group-title="精选频道",无线新闻
-http://beishan008.asuscomm.com:8890/bysid/83.m3u8
 #EXTINF:-1 tvg-name="TVBPlus" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/TVBPlus.png" group-title="精选频道",TVBPlus
 http://php.jdshipin.com:8880/TVOD/iptv.php?id=tvbp
 #EXTINF:-1 tvg-name="TVBPlus" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/TVBPlus.png" group-title="精选频道",TVBPlus
@@ -32,50 +32,50 @@ https://10.fast.hidns.vip/163189/tvbp/
 #EXTINF:-1 tvg-name="TVBPlus" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/TVBPlus.png" group-title="精选频道",TVBPlus
 https://cdn3.indevs.in/stream/tvb/tvbp/
 #EXTINF:-1 tvg-name="TVBPlus" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/TVBPlus.png" group-title="精选频道",TVBPlus
-https://vdm6-hw.nbgdsygs.com/live/h6-2.flv
-#EXTINF:-1 tvg-name="TVBPlus" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/TVBPlus.png" group-title="精选频道",TVBPlus
 https://cdn.qd.je/163189/tvbp
+#EXTINF:-1 tvg-name="TVBPlus" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/TVBPlus.png" group-title="精选频道",TVBPlus
+https://cdn.qd.je/163189/tvbpvtt
 #EXTINF:-1 tvg-name="VIUTV" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/viutv.png" group-title="精选频道",VIUTV
 http://php.jdshipin.com/TVOD/iptv.php?id=viutv2
 #EXTINF:-1 tvg-name="VIUTV" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/viutv.png" group-title="精选频道",VIUTV
 https://10.fast.hidns.vip/163189/viu/
 #EXTINF:-1 tvg-name="VIUTV" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/viutv.png" group-title="精选频道",VIUTV
-https://pull-f5-spe.ixigua.com/yeslivetv.com/711923214-581799927/index.m3u8
-#EXTINF:-1 tvg-name="VIUTV" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/viutv.png" group-title="精选频道",VIUTV
 https://cdn.qd.je/163189.php?id=viu
+#EXTINF:-1 tvg-name="VIUTV" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/viutv.png" group-title="精选频道",VIUTV
+https://pull-f5-spe.ixigua.com/yeslivetv.com/711923214-581799927/index.m3u8
+#EXTINF:-1 tvg-name="广东体育" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/广东体育.png" group-title="精选频道",广东体育
+http://198.204.228.26/live/gdty.m3u8
+#EXTINF:-1 tvg-name="广东体育" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/广东体育.png" group-title="精选频道",广东体育
+http://198.204.228.26/live/gdty.m3u8?ysp
+#EXTINF:-1 tvg-name="广东体育" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/广东体育.png" group-title="精选频道",广东体育
+http://xhyx.gz.cn:1698/udp/239.77.0.6:5146
 #EXTINF:-1 tvg-name="广东体育" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/广东体育.png" group-title="精选频道",广东体育
 http://denghao.net:4022/udp/239.77.0.112:5146
 #EXTINF:-1 tvg-name="广东体育" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/广东体育.png" group-title="精选频道",广东体育
 http://61.146.189.233:8000/udp/239.77.0.112:5146
 #EXTINF:-1 tvg-name="广东体育" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/广东体育.png" group-title="精选频道",广东体育
-http://198.204.228.26/live/gdty.m3u8?ysp
-#EXTINF:-1 tvg-name="广东体育" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/广东体育.png" group-title="精选频道",广东体育
 http://14.127.213.91:4022/udp/239.77.0.6:5146
-#EXTINF:-1 tvg-name="广东体育" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/广东体育.png" group-title="精选频道",广东体育
-http://120.238.84.45:9901/tsfile/live/1012_1.m3u8?key=txiptv
-#EXTINF:-1 tvg-name="广东体育" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/广东体育.png" group-title="精选频道",广东体育
-http://38.75.136.137:98/gslb/dsdqpub/gdty.m3u8?auth=testpub
 #EXTINF:-1 tvg-name="CCTV5" tvg-logo="https://logo.catvod.com/CCTV5.png" group-title="央视",CCTV5
-http://171.213.148.194:8123/udp/239.93.1.36:8004
-#EXTINF:-1 tvg-name="CCTV5" tvg-logo="https://logo.catvod.com/CCTV5.png" group-title="央视",CCTV5
-http://119.51.193.77:5003/cctv5.m3u8?token=7375646f86cd799b2034a4d3078f0388b1bb36be&z=1f4e
-#EXTINF:-1 tvg-name="CCTV5" tvg-logo="https://logo.catvod.com/CCTV5.png" group-title="央视",CCTV5
-http://171.213.146.0:4022/udp/239.93.42.37:5140
-#EXTINF:-1 tvg-name="CCTV5" tvg-logo="https://logo.catvod.com/CCTV5.png" group-title="央视",CCTV5
-http://43.152.31.17:843/hlslive-tx-cdn.ysp.cctv.cn/ysp/2024078401_dlna.m3u8
+http://122.5.194.152:8899/udp/239.21.1.190:5002
 #EXTINF:-1 tvg-name="CCTV5" tvg-logo="https://logo.catvod.com/CCTV5.png" group-title="央视",CCTV5
 http://173.208.234.146/live/cctv5.m3u8?zbj
 #EXTINF:-1 tvg-name="CCTV5" tvg-logo="https://logo.catvod.com/CCTV5.png" group-title="央视",CCTV5
-http://z2m.eversouthhangzhou.com.cn:8188/rtp/233.50.201.195:5140
+http://43.152.31.17:843/hlslive-tx-cdn.ysp.cctv.cn/ysp/2024078401_dlna.m3u8
+#EXTINF:-1 tvg-name="CCTV5" tvg-logo="https://logo.catvod.com/CCTV5.png" group-title="央视",CCTV5
+http://38.75.136.137:98/gslb/dsdqbv/cctv5hd.m3u8?auth=test20251009
+#EXTINF:-1 tvg-name="CCTV5" tvg-logo="https://logo.catvod.com/CCTV5.png" group-title="央视",CCTV5
+http://119.114.57.68:4022/rtp/232.0.0.171:1234
+#EXTINF:-1 tvg-name="CCTV5" tvg-logo="https://logo.catvod.com/CCTV5.png" group-title="央视",CCTV5
+http://43.152.31.17:843/hlslive-tx-cdn.ysp.cctv.cn/ysp/2024078403_dlna.m3u8
 #EXTINF:-1 tvg-name="CCTV5+" tvg-logo="https://logo.catvod.com/CCTV5+.png" group-title="央视",CCTV5+
-http://171.213.148.194:8123/udp/239.93.1.36:8004
+http://122.5.194.152:8899/udp/239.21.1.190:5002
+#EXTINF:-1 tvg-name="CCTV5+" tvg-logo="https://logo.catvod.com/CCTV5+.png" group-title="央视",CCTV5+
+http://43.152.31.17:843/hlslive-tx-cdn.ysp.cctv.cn/ysp/2024078001_dlna.m3u8
 #EXTINF:-1 tvg-name="CCTV5+" tvg-logo="https://logo.catvod.com/CCTV5+.png" group-title="央视",CCTV5+
 http://173.208.234.146/live/cctv5p.m3u8?zbj
 #EXTINF:-1 tvg-name="CCTV5+" tvg-logo="https://logo.catvod.com/CCTV5+.png" group-title="央视",CCTV5+
-http://43.152.31.17:843/hlslive-tx-cdn.ysp.cctv.cn/ysp/2024078001_dlna.m3u8
+http://171.213.148.194:8123/udp/239.93.1.36:8004
 #EXTINF:-1 tvg-name="CCTV5+" tvg-logo="https://logo.catvod.com/CCTV5+.png" group-title="央视",CCTV5+
 http://121.19.134.149:808/rtp/239.253.92.82:8013
 #EXTINF:-1 tvg-name="CCTV5+" tvg-logo="https://logo.catvod.com/CCTV5+.png" group-title="央视",CCTV5+
 http://vpn.ydcb.top:40000/udp/239.93.1.79:5140
-#EXTINF:-1 tvg-name="CCTV5+" tvg-logo="https://logo.catvod.com/CCTV5+.png" group-title="央视",CCTV5+
-http://124.77.237.107:4022/
